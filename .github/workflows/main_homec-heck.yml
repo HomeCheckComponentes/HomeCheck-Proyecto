@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'homec-heck'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_364b8dcd3c504ab5968d67d1dc93214b }}
+        publish-profile: ${{ secrets.SCM_CREDENTIALS }}
         package: ${{env.DOTNET_ROOT}}/myapp 
