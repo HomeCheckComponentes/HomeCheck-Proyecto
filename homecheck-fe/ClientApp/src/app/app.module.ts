@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { RegistrarUsuarioComponent } from './usuarios/registrar-usuario/registrar-usuario.component';
+import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    RegistrarUsuarioComponent,
+    ListarUsuariosfamiliaComponent,
    
   ],
   imports: [
@@ -21,10 +25,14 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '/registrar-usuario', component: RegistrarUsuarioComponent },
+      { path: '/listar-usuarios-familia', component: ListarUsuariosfamiliaComponent }
     ])
   ],
-  providers: [],
+  providers: [
+      
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
