@@ -33,6 +33,7 @@ namespace homecheck_be
 
             services.AddSingleton<IDatabaseSetting>(sp =>
                 sp.GetRequiredService<IOptions<DatabaseSetting>>().Value);
+            services.AddSingleton<FamiliaService>();
             services.AddSingleton<BookService>();
             services.AddControllers();
         }
