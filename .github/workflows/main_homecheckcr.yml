@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - homec-heck
+name: Build and deploy ASP.Net Core app to Azure Web App - homecheckcr
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@master
 
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
@@ -29,8 +29,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'homec-heck'
+        app-name: 'homecheckcr'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_364B8DCD3C504AB5968D67D1DC93214B }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_85680b63e2d9435db54c9d8d0f14fec5 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
-    
