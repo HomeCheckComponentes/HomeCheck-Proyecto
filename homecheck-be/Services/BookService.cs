@@ -20,6 +20,7 @@ namespace homecheck_be.Services
         }
 
         public List<Book> Get() =>
+            
             _books.Find(book => true).ToList();
 
         public Book Get(string id) =>
