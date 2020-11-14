@@ -59,8 +59,9 @@ namespace homecheck_be
             app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
-                .AllowCredentials()); // allow credentials
+               // .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()
+                .AllowAnyOrigin()); // allow credentials
             
             app.UseAuthentication();
             app.UseAuthorization();
