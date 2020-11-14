@@ -37,6 +37,7 @@ import { ListarFamiliasComponent } from './Familias/listar-familias/listar-famil
       { path: 'landingPage', component: LandingPageComponent },
       { path: 'familias/listar-familias', component: ListarFamiliasComponent },
       { path: 'familias/registrar-familia', component: RegistrarFamiliaComponent },
+      { path: 'login', component: LoginComponent },
     ])
   ],
   providers: [],
