@@ -28,7 +28,7 @@ import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.comp
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'landingPage', component: LandingPageComponent }
+      { path: 'landingPage', component: LandingPageComponent }, 
     ])
   ],
   providers: [],

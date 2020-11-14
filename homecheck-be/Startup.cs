@@ -35,11 +35,12 @@ namespace homecheck_be
                 sp.GetRequiredService<IOptions<DatabaseSetting>>().Value);
             services.AddSingleton<FamiliaService>();
             services.AddSingleton<BookService>();
+            services.AddSingleton<TareaService>();
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IWebHostBuilder host)
         {
             if (env.IsDevelopment())
             {
@@ -50,12 +51,17 @@ namespace homecheck_be
 
             app.UseRouting();
 
+            host.UseIIS();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+
+             
         }
     }
 }
