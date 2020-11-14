@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Cors
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,8 +29,12 @@ namespace homecheck_be
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // Add Cors
+            services.AddCors();
             services.Configure<DatabaseSetting>(
                 Configuration.GetSection(nameof(DatabaseSetting)));
+
 
             services.AddSingleton<IDatabaseSetting>(sp =>
                 sp.GetRequiredService<IOptions<DatabaseSetting>>().Value);
@@ -47,11 +52,18 @@ namespace homecheck_be
             }
 
             app.UseHttpsRedirection();
+          
 
             app.UseRouting();
-
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+            
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
