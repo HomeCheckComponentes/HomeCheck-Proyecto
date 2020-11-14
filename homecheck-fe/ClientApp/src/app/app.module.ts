@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './Landing_page/landing-page/landing-page.component';
+import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { LandingPageComponent } from './Landing_page/landing-page/landing-page.c
     NavMenuComponent,
     HomeComponent,
     LandingPageComponent,
+    RegistroTareasComponent,
    
   ],
   imports: [

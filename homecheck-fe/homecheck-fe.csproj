@@ -26,6 +26,8 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\Landing_page\" />
+    <Folder Include="ClientApp\src\app\servicios\" />
+    <Folder Include="ClientApp\src\app\Tareas\" />
     <Folder Include="ClientApp\src\assets\landingPage\" />
   </ItemGroup>
 
