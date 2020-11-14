@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { LandingPageComponent } from './Landing_page/landing-page/landing-page.component';
+import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
+import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.component';
 import { RegistrarUsuarioComponent } from './usuarios/registrar-usuario/registrar-usuario.component';
 import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component';
 
@@ -16,6 +19,9 @@ import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamili
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    LandingPageComponent,
+    RegistroTareasComponent,
+    ListarTareasComponent,
     RegistrarUsuarioComponent,
     ListarUsuariosfamiliaComponent,
    
@@ -26,6 +32,7 @@ import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamili
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'landingPage', component: LandingPageComponent }
       { path: '/registrar-usuario', component: RegistrarUsuarioComponent },
       { path: '/listar-usuarios-familia', component: ListarUsuariosfamiliaComponent }
     ])
