@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using homecheck_be.Models;
 using homecheck_be.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 
 namespace homecheck_be.Controllers
 {
@@ -37,11 +38,12 @@ namespace homecheck_be.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Familia> Create(Familia familia)
+        public IActionResult Create(Familia familia)
         {
             _familiaService.Create(familia);
 
-            return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
+            //return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
+            return Ok();
         }
 
         [HttpPut("{id:length(24)}")]
