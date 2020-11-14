@@ -11,6 +11,8 @@ import { LandingPageComponent } from './Landing_page/landing-page/landing-page.c
 import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
 import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.component';
 import { LoginComponent } from './login/login.component';
+import { RegistrarFamiliaComponent } from './Familias/registrar-familia/registrar-familia.component';
+import { ListarFamiliasComponent } from './Familias/listar-familias/listar-familias.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { LoginComponent } from './login/login.component';
     LandingPageComponent,
     RegistroTareasComponent,
     ListarTareasComponent,
+    RegistrarFamiliaComponent,
+    ListarFamiliasComponent,
     LoginComponent,
    
   ],
@@ -30,7 +34,9 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'landingPage', component: LandingPageComponent }
+      { path: 'landingPage', component: LandingPageComponent },
+      { path: 'familias/listar-familias', component: ListarFamiliasComponent },
+      { path: 'familias/registrar-familia', component: RegistrarFamiliaComponent },
     ])
   ],
   providers: [],

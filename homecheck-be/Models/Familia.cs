@@ -14,8 +14,9 @@ namespace homecheck_be.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
+        [BsonElement("Name")]
         public string Name { get; set; }
-
+        [BsonElement("Admin")]
         public string Admin { get; set; }
         
     }
