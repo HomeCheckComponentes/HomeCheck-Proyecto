@@ -32,9 +32,9 @@ import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamili
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'landingPage', component: LandingPageComponent }
-      { path: '/registrar-usuario', component: RegistrarUsuarioComponent },
-      { path: '/listar-usuarios-familia', component: ListarUsuariosfamiliaComponent }
+      { path: 'landingPage', component: LandingPageComponent },
+      { path: 'usuario/registrar-usuario', component: RegistrarUsuarioComponent },
+      { path: 'usuario/listar-usuarios-familia', component: ListarUsuariosfamiliaComponent }
     ])
   ],
   providers: [

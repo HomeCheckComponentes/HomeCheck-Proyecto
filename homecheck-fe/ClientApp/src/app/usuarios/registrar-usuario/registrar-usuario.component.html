@@ -1,1 +1,53 @@
-<p>registrar-usuario works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10">
+      <h1>Registro de usuario</h1>
+      <p>Ingrese los siguientes datos</p>
+    </div>
+
+  </div>
+
+
+  <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="form-group col-lg-12 col-md-12">
+        <label>Tipo de usuario:</label>
+        <select>
+          <option value="adminFamilia">Administrador de familia</option>
+          <option value="integrante">Integrante familia</option>
+        </select>
+
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-lg-12 col-md-12">
+        <label for="username">Nombre de usuario</label>
+        <input type="text"
+               class="form-control"
+               name="username"
+               id="username"
+               formControlName="Username"
+               placeholder="mariela">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-lg-12 col-md-12">
+        <label for="password">Contraseña</label>
+        <input type="password"
+               class="form-control"
+               name="password"
+               id="password"
+               formControlName="Password"
+               placeholder="1234">
+      </div>
+    </div>
+
+</div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="isSendingData"
+            data-toggle="modal" data-target="#Modal">
+      Registrar
+    </button>
+  </form>
+</div>
