@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { LandingPageComponent } from './Landing_page/landing-page/landing-page.component';
+import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
+import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.component';
 
 
 @NgModule({
@@ -14,6 +17,9 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    LandingPageComponent,
+    RegistroTareasComponent,
+    ListarTareasComponent,
    
   ],
   imports: [
@@ -21,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'landingPage', component: LandingPageComponent }
     ])
   ],
   providers: [],
