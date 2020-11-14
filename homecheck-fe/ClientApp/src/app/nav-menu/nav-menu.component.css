@@ -16,3 +16,8 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+.btn-primary {
+  background-color: #cf7500 !important;
+  border: #cf7500 !important;
+}

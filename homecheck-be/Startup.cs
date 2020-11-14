@@ -47,6 +47,10 @@ namespace homecheck_be
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => builder.WithOrigins("*")
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
