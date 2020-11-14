@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 a {
   color: #0366d6;
@@ -11,8 +11,22 @@ code {
   color: #e01a76;
 }
 
+input {
+  border-color: #f0a500;
+}
+
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #cf7500 !important;
+  border: #cf7500 !important;
+}
+
+.login-form {
+  position: relative;
+  margin: auto;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #f0a500;
 }

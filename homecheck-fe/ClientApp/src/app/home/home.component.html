@@ -1,1 +1,13 @@
-<h1>Welcome to home check !</h1>
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">HomeCheck</a>
+    </div>
+</nav>
+
+<form class="login-form">
+    <label for="loginEmail">Correo Electrónico:</label>
+    <input ngModel="email" type="text" id="loginEmail" placeholder="usuario@ejemplo.com" ng>
+    <label>Contraseña:</label>
+    <input ngModel="password" type="password" id="loginPassword" placeholder="p4$$w3rD">
+    <button ng-click="login" class="btn btn-primary" href="#">Iniciar Sesión</button>
+</form>

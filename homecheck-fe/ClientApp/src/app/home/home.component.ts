@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+  email: string;
+  password: string;
+
+  login() {
+    this.email = "Hola!";
+  }
 }
