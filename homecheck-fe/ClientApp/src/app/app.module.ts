@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './Landing_page/landing-page/landing-page.component';
 import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
+import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tarea
     HomeComponent,
     LandingPageComponent,
     RegistroTareasComponent,
+    ListarTareasComponent,
    
   ],
   imports: [
