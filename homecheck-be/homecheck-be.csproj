@@ -3,11 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>homecheck_be</RootNamespace>
+	  
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+	 
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.11.4" />
   </ItemGroup>
 
+	
 
 </Project>
