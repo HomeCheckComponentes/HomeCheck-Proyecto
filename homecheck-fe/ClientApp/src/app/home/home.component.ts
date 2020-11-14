@@ -1,14 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { Usuario } from "../_models/usuario";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
+  selector: "app-home",
+  templateUrl: "./home.component.html",
 })
 export class HomeComponent {
-  email: string;
-  password: string;
 
-  login() {
-    this.email = "Hola!";
-  }
 }
