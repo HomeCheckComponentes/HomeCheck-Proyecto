@@ -21,11 +21,24 @@ namespace homecheck_be.Services
         }
 
         public List<Usuario> Get() =>
-           _usuarios.Find(familia => true).ToList();
+           _usuarios.Find(usuario => true).ToList();
+
+
+        public List<Usuario> GetUsuariosFamilia(string id) =>
+            _usuarios.Find(usuario => usuario.IdFamilia.Equals(id)).ToList();
+
+        
+        public List<Usuario> GetMiembrosFamilia(string id) =>
+         _usuarios.Find(usuario => usuario.IdFamilia.Equals(id) && usuario.Member.Equals("Integrante")).ToList();
 
 
         public Usuario Get(string id) =>
             _usuarios.Find<Usuario>(usuario => usuario.Id == id).FirstOrDefault();
+
+
+        public Usuario GetAdminFamilia(string id) =>
+          _usuarios.Find<Usuario>(usuario => usuario.IdFamilia.Equals(id) && usuario.Usertype.Equals("AdminFamilia"))
+            .FirstOrDefault();
 
         public Usuario Create(Usuario usuario)
         {

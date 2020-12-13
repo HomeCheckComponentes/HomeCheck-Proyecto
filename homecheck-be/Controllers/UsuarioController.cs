@@ -24,7 +24,7 @@ namespace homecheck_be.Controllers
             _usuarioService.Get();
 
 
-        [HttpGet("{id:length(24)}", Name = "GetUsuario")]
+        [HttpGet("{id:length(24)}", Name = "usuario")]
         public ActionResult<Usuario> Get(string id)
         {
             var usuario = _usuarioService.Get(id);
@@ -37,12 +37,60 @@ namespace homecheck_be.Controllers
             return usuario;
         }
 
+        [HttpGet("{id:length(24)}", Name = "familia")]
+        public ActionResult<List<Usuario>> GetUsuariosFamilia(string id)
+        {
+            var usuariosFamilia = _usuarioService.GetUsuariosFamilia(id);
+
+            if (usuariosFamilia == null)
+            {
+                return NotFound();
+            }
+
+            return usuariosFamilia;
+        }
+
+        [HttpGet("{id:length(24)}", Name = "familia/admin")]
+        public ActionResult<Usuario> GetAdminFamilia(string id)
+        {
+            var adminFamilia = _usuarioService.GetAdminFamilia(id);
+
+            if (adminFamilia == null)
+            {
+                return NotFound();
+            }
+
+            return adminFamilia;
+        }
+
+
+        [HttpGet("{id:length(24)}", Name = "familia/miembros")]
+        public ActionResult<List<Usuario>> GetMiembrosFamilia(string id)
+        {
+            var usuariosFamilia = _usuarioService.GetMiembrosFamilia(id);
+
+            if (usuariosFamilia == null)
+            {
+                return NotFound();
+            }
+
+            return usuariosFamilia;
+        }
+
+
         [HttpPost]
         public ActionResult<Usuario> Create(Usuario usuario)
         {
-            _usuarioService.Create(usuario);
+            try
+            {
+                _usuarioService.Create(usuario);
+                return Ok();
+            } catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
-            return CreatedAtRoute("GetUsuario", new { id = usuario.Id.ToString() }, usuario);
+            return BadRequest(new { message = "Error general al registrar el usuario. Vuelva a intertarlo en unos minutos." });
         }
 
         [HttpPut("{id:length(24)}")]
