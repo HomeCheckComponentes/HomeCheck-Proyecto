@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { enableProdMode } from '@angular/core';
+
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -13,6 +18,7 @@ import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.comp
 import { RegistrarFamiliaComponent } from './Familias/registrar-familia/registrar-familia.component';
 import { ListarFamiliasComponent } from './Familias/listar-familias/listar-familias.component';
 
+enableProdMode();
 
 @NgModule({
   declarations: [
@@ -30,9 +36,9 @@ import { ListarFamiliasComponent } from './Familias/listar-familias/listar-famil
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'landingPage', component: LandingPageComponent },
+      { path: '', component: LandingPageComponent },
       { path: 'familias/listar-familias', component: ListarFamiliasComponent },
       { path: 'familias/registrar-familia', component: RegistrarFamiliaComponent },
     ])

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Familia } from '../../models/familia';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
 import { FamiliaService } from '../../servicios/familia.service';
 
 @Component({
@@ -10,33 +12,74 @@ import { FamiliaService } from '../../servicios/familia.service';
 })
 export class RegistrarFamiliaComponent implements OnInit {
 
-  public formData: Familia;
+  public familiaForm: FormGroup;
+  private submitted: boolean = false;
+  private error: object = null;
+  private registerComplete: boolean = false;
+  private isSendingData: boolean = false;
 
 
-  constructor(private service: FamiliaService) { }
+
+  constructor(private service: FamiliaService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
 
   ngOnInit() {
-    this.resetForm()
+    this.familiaForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      correo: new FormControl('', [Validators.required])
+    });
+
   }
 
 
-
-  onSubmit(formData: NgForm) {
-    console.log(formData.value)
+  get f() {
+    return this.familiaForm.controls;
   }
-  resetForm(form?: NgForm) {
-    if (form != null) {
-      form.reset();
+
+  sanitizeData(data: FormGroup): Familia {
+    let nuevaFamilia: Familia = new Familia();
+    nuevaFamilia.name = this.familiaForm.controls['name'].value;
+    nuevaFamilia.correo = this.familiaForm.controls['correo'].value;;
+    return nuevaFamilia;
+  }
+
+  registrarFamilia() {
+    this.isSendingData = true;
+    console.log(this.sanitizeData(this.familiaForm));
+
+    this.service.crearFamilia(this.sanitizeData(this.familiaForm))
+      .subscribe(
+        (response) => {
+          this.isSendingData = false;
+
+        },
+        (error) => {
+          this.isSendingData = false;
+          this.error = error.error;
+
+          if (!this.error.hasOwnProperty('message')) {
+            this.error = { message: 'Error general al registrar a la familia. Vuelva a intertarlo en unos minutos' };
+          }
+
+          window.scroll(0, 0);
+
+
+        });
+  }
+
+
+  onSubmit() {
+    console.log(this.familiaForm.value);
+    this.submitted = true;
+
+    if (this.familiaForm.invalid) {
+      window.scroll(0, 0);
+      return;
     }
 
-
-    this.formData = {
-      id: '5',
-      nombre: '',
-      correo: '',
-
-    }
-
+    this.registrarFamilia();
   }
+  
 }

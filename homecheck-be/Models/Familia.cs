@@ -17,7 +17,7 @@ namespace homecheck_be.Models
         [BsonElement("Name")]
         public string Name { get; set; }
         [BsonElement("Admin")]
-        public string Admin { get; set; }
+        public string Correo { get; set; }
         
     }
 }

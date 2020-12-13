@@ -5,11 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
+using System.Web.Http.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace homecheck_be.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class FamiliasController : ControllerBase
     {
@@ -40,10 +43,19 @@ namespace homecheck_be.Controllers
         [HttpPost]
         public IActionResult Create(Familia familia)
         {
-            _familiaService.Create(familia);
+           
 
             //return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
-            return Ok();
+            try
+            {
+                _familiaService.Create(familia);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("{id:length(24)}")]

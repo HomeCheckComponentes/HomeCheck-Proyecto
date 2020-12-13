@@ -1,6 +1,5 @@
-export class Familia {
+export class FamiliaList {
   id: string;
   name: string;
-  //emailAdmin: string;
   correo: string;
 }
