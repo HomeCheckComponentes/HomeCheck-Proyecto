@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './Landing_page/landing-page/landing-page.component';
 import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
 import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.component';
+import { NavFooterComponent } from './nav-footer/nav-footer.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.comp
     LandingPageComponent,
     RegistroTareasComponent,
     ListarTareasComponent,
+    NavFooterComponent,
    
   ],
   imports: [
