@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { enableProdMode } from '@angular/core';
+
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -10,9 +15,12 @@ import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './Landing_page/landing-page/landing-page.component';
 import { RegistroTareasComponent } from './Tareas/registro-tareas/registro-tareas.component';
 import { ListarTareasComponent } from './Tareas/listar-tareas/listar-tareas.component';
+import { RegistrarFamiliaComponent } from './Familias/registrar-familia/registrar-familia.component';
+import { ListarFamiliasComponent } from './Familias/listar-familias/listar-familias.component';
 import { RegistrarUsuarioComponent } from './usuarios/registrar-usuario/registrar-usuario.component';
 import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component';
 
+enableProdMode();
 
 @NgModule({
   declarations: [
@@ -22,6 +30,8 @@ import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamili
     LandingPageComponent,
     RegistroTareasComponent,
     ListarTareasComponent,
+    RegistrarFamiliaComponent,
+    ListarFamiliasComponent,
     RegistrarUsuarioComponent,
     ListarUsuariosfamiliaComponent,
    
@@ -30,8 +40,11 @@ import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamili
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: LandingPageComponent },
+      { path: 'familias/listar-familias', component: ListarFamiliasComponent },
+      { path: 'familias/registrar-familia', component: RegistrarFamiliaComponent },
       { path: 'landingPage', component: LandingPageComponent },
       { path: 'usuario/registrar-usuario', component: RegistrarUsuarioComponent },
       { path: 'usuario/listar-usuarios-familia', component: ListarUsuariosfamiliaComponent }

@@ -1,0 +1,23 @@
+<p>listar-familias works!</p>
+<div class="row">
+  <div class="col">
+    <br>
+    <table class="table table-striped table-responsive-sm">
+
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Correo de familia</th>
+          
+        </tr>
+      </thead>
+      <tr *ngFor="let familia of familias ">
+        <td>{{familia.id}}</td>
+        <td>{{familia.name}}</td>
+        <td>{{familia.correo}}</td>
+        
+      </tr>
+    </table>
+  </div>
+</div>

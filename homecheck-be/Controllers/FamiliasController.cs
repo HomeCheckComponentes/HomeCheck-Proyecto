@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using homecheck_be.Models;
 using homecheck_be.Services;
 using System;
@@ -6,10 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+
 namespace homecheck_be.Controllers
 {
+  
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class FamiliasController : ControllerBase
     {
         private readonly FamiliaService _familiaService;
@@ -23,7 +29,7 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Familia>> Get() =>
             _familiaService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetFamilia")]
+        [HttpGet("{id:length(24)}")]
         public ActionResult<Familia> Get(string id)
         {
             var familia = _familiaService.Get(id);
@@ -37,11 +43,21 @@ namespace homecheck_be.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Familia> Create(Familia familia)
+        public IActionResult Create(Familia familia)
         {
-            _familiaService.Create(familia);
+           
 
-            return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
+            //return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
+            try
+            {
+                _familiaService.Create(familia);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("{id:length(24)}")]

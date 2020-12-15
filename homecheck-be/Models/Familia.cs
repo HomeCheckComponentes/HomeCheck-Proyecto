@@ -14,10 +14,10 @@ namespace homecheck_be.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-       
+        [BsonElement("Name")]
         public string Name { get; set; }
-
-        public string Admin { get; set; }
+        [BsonElement("Email")]
+        public string Correo { get; set; }
         
     }
 }
