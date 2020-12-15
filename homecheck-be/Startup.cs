@@ -37,13 +37,13 @@ namespace homecheck_be
                 options.AddPolicy(
                   "CorsPolicy",
                   builder => builder
-                  .AllowAnyOrigin()//.WithOrigins("http://localhost:4200")
+                  .WithOrigins("http://localhost:4200")
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .SetIsOriginAllowed(host => true)
                   .AllowCredentials());
             });
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+            //services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
 
             services.Configure<DatabaseSetting>(
@@ -63,7 +63,7 @@ namespace homecheck_be
         {
 
             app.UseCors("CorsPolicy");
-            app.UseMiddleware<CorsMiddleware> ();
+            app.UseMiddleware<CorsMiddleware>();
 
             if (env.IsDevelopment())
             {

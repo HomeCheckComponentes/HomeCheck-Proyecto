@@ -16,7 +16,7 @@ namespace homecheck_be.Models
 
         [BsonElement("Name")]
         public string Name { get; set; }
-        [BsonElement("Admin")]
+        [BsonElement("Email")]
         public string Correo { get; set; }
         
     }

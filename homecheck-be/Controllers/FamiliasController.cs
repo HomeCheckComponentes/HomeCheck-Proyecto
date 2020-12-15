@@ -5,15 +5,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http.Cors;
+
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace homecheck_be.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+  
     [Route("api/[controller]")]
     [Authorize]
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class FamiliasController : ControllerBase
     {
         private readonly FamiliaService _familiaService;
@@ -27,7 +29,7 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Familia>> Get() =>
             _familiaService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetFamilia")]
+        [HttpGet("{id:length(24)}")]
         public ActionResult<Familia> Get(string id)
         {
             var familia = _familiaService.Get(id);
