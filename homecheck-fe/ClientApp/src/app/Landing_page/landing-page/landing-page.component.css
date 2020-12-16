@@ -27,6 +27,7 @@ header.masthead {
   padding-top: 8rem;
   padding-bottom: 8rem;
   opacity: 0.7;
+ 
 }
 
   header.masthead .overlay {
@@ -70,6 +71,8 @@ header.masthead {
    
   }
 }
+
+
 
 .features-icons {
   padding-top: 7rem;
@@ -141,7 +144,27 @@ footer.footer {
 }
 
 
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  color: #f0a500 !important;
+}
+
+
+nav {
+  background-color: #1a1c20 !important;
+}
+
+
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05) !important;
+}
+
 .btn-primary {
   background-color: #cf7500 !important;
   border: #cf7500 !important;
 }
+
