@@ -4,6 +4,7 @@
   >
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']">Homecheck</a>
+      <a><img src="../../assets/img/logo_transparent2.png" width="70" height="60"/></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,22 +21,7 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
+          <li> <a class="btn btn-primary" href="#">Iniciar</a>
           </li>
         </ul>
       </div>

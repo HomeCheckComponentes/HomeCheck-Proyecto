@@ -55,7 +55,8 @@ header.masthead {
 }
 
 .showcase .showcase-text {
-  padding: 3rem;
+  padding: 3rem !important;
+ 
 }
 
 .showcase .showcase-img {
@@ -66,6 +67,7 @@ header.masthead {
 @media (min-width: 768px) {
   .showcase .showcase-text {
     padding: 7rem;
+   
   }
 }
 
@@ -102,7 +104,8 @@ header.masthead {
     .testimonials .testimonial-item img {
       width: 185px;
       box-shadow: 0px 5px 5px 0px #adb5bd;
-      max-height:195px;
+      max-height: 187px;
+      object-fit: cover;
     }
 
 .call-to-action {

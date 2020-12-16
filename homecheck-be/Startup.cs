@@ -44,11 +44,12 @@ namespace homecheck_be
             services.AddSingleton<FamiliaService>();
             services.AddSingleton<BookService>();
             services.AddSingleton<UsuarioService>();
+            services.AddSingleton<TareaService>();
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IWebHostBuilder host)
         {
 
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -60,14 +61,24 @@ namespace homecheck_be
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => builder.WithOrigins("*")
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            host.UseIIS();
 
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+
+             
         }
     }
 }
