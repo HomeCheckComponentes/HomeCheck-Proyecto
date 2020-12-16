@@ -1,4 +1,4 @@
-<p>listar-familias works!</p>
+<p>listar-usuariosfamilia works!</p>
 <div class="row">
   <div class="col">
     <br>
@@ -7,18 +7,20 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Nombre</th>
-          <th>Correo de familia</th>
-          <th>Integrantes de Familia</th>
+          <th>Tipo de usuario</th>
+          <th>Nombre de usuario</th>
+          <th>Correo</th>
+          <th>Miembro de familia</th>
           <th>Opciones</th>
 
         </tr>
       </thead>
       <tr>
         <td>1234</td>
-        <td>Bonilla</td>
+        <td>Integrante</td>
+        <td>mariela</td>
         <td>bonilla@gmail.com</td>
-        <td><a href="/usuarios/usuarios-familia"> Ver integrantes de familia </a></td>
+        <td>AdminFamilia</td>
         <td class="text-right">
           <button class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i>Editar</button>&nbsp;
           <button class="btn btn-outline-danger btn-sm">
@@ -27,17 +29,19 @@
         </td>
       </tr>
       <!--<tr *ngFor="let familia of familias ">
-        <td>{{familia.id}}</td>
-        <td>{{familia.name}}</td>
-        <td>{{familia.correo}}</td>
-        <td><a [routerLink]="['usuarios/usuarios-familia/{{familia.id}}']"> Ver integrates de familia </a></td>
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.usertype}}</td>
+        <td>{{usuario.username}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.member}}</td>+
+
         <td class="text-right">
-          <button (click)="editar(familia)" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i></button>&nbsp;
-          <button (click)="eliminar(familia.id)" class="btn btn-outline-danger btn-sm">
+          <button (click)="editar({{usuario}})" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i></button>&nbsp;
+          <button (click)="eliminar({{usuario.id}}, {{usuario.idfamilia}})" class="btn btn-outline-danger btn-sm">
             <i class="far fa-trash-alt"></i>
           </button>
         </td>
-      </tr>-->
+  </tr>-->
     </table>
   </div>
 </div>
