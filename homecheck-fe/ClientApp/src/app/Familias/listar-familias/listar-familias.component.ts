@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { FamiliaList } from '../../models/familia-list';
 import { ActivatedRoute } from '@angular/router';
+import { Familia } from '../../models/familia';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListarFamiliasComponent implements OnInit {
   private familias: FamiliaList[];
+  private cambioFamilia: Familia;
   constructor(
     private service: FamiliaService,
     private router: Router,
@@ -28,5 +30,26 @@ export class ListarFamiliasComponent implements OnInit {
     this.service.obtenerFamilias()
       .subscribe(data => this.familias = data);
   }
+
+
+  public editar(familia: Familia) {
+
+    this.cambioFamilia = familia;
+  }
+
+  public completarModificar(cambioFamilia: Familia) {
+    this.service.modificarFamilia(cambioFamilia).subscribe(res => {
+      this.service.obtenerTodasFamilias();
+    });
+   
+  }
+
+  
+
+    eliminar(id: string) {
+      this.service.eliminarFamilia(id).subscribe(res => {
+        this.service.obtenerTodasFamilias();
+      });
+    }
 
 }

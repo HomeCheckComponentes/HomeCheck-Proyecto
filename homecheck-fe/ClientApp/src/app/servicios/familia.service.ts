@@ -13,7 +13,7 @@ import { throwError } from 'rxjs';
 export class FamiliaService {
     formData: Familia;
     list: Familia[];
-    listUsuarios: Familia[];
+    listFamilias: Familia[];
     private baseUrl: string;
 
     constructor(
@@ -46,6 +46,17 @@ export class FamiliaService {
       return this.http.get<FamiliaList[]>(endpointUrl);
     }
 
+    modificarFamilia(familia: Familia): Observable<any> {
+      return this.http.put(this.baseUrl + '/familias', familia)
+      }
 
+      eliminarFamilia(id: string) {
+        return this.http.delete(this.baseUrl + 'familias/?id=' + id)
+    }
+
+    obtenerTodasFamilias() {
+      this.http.get(this.baseUrl + '/familias')
+        .toPromise().then(res => this.listFamilias = res as Familia[])
+    }
     
 }

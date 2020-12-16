@@ -32,17 +32,6 @@ namespace homecheck_be
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(
-                  "CorsPolicy",
-                  builder => builder
-                  .WithOrigins("http://localhost:4200")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .SetIsOriginAllowed(host => true)
-                  .AllowCredentials());
-            });
             //services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
 
@@ -62,8 +51,9 @@ namespace homecheck_be
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            app.UseCors("CorsPolicy");
-            app.UseMiddleware<CorsMiddleware>();
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            // app.UseMiddleware<CorsMiddleware>();
 
             if (env.IsDevelopment())
             {

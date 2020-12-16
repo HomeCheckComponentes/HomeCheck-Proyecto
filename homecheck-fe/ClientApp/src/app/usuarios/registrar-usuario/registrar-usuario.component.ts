@@ -25,7 +25,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     private serviceUsuario: UsuarioService,
     private router: Router,
     private route: ActivatedRoute) {
-    this.id_familia = JSON.parse(localStorage.getItem('id_familia')).usuario.idfamilia;
+    //this.id_familia = JSON.parse(localStorage.getItem('id_familia')).usuario.idfamilia;
   }
   username: string;
   password: string;

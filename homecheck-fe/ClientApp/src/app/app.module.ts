@@ -33,8 +33,7 @@ enableProdMode();
     RegistrarFamiliaComponent,
     ListarFamiliasComponent,
     RegistrarUsuarioComponent,
-    ListarUsuariosfamiliaComponent,
-   
+    ListarUsuariosfamiliaComponent   
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,9 +44,8 @@ enableProdMode();
       { path: '', component: LandingPageComponent },
       { path: 'familias/listar-familias', component: ListarFamiliasComponent },
       { path: 'familias/registrar-familia', component: RegistrarFamiliaComponent },
-      { path: 'landingPage', component: LandingPageComponent },
-      { path: 'usuario/registrar-usuario', component: RegistrarUsuarioComponent },
-      { path: 'usuario/listar-usuarios-familia', component: ListarUsuariosfamiliaComponent }
+      { path: 'usuarios/agregar-usuario', component: RegistrarUsuarioComponent },
+      { path: 'usuarios/usuarios-familia', component: ListarUsuariosfamiliaComponent }
     ])
   ],
   providers: [

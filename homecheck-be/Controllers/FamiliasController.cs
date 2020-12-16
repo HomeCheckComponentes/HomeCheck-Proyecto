@@ -6,16 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 
 namespace homecheck_be.Controllers
 {
   
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
-    [EnableCors("CorsPolicy")]
     public class FamiliasController : ControllerBase
     {
         private readonly FamiliaService _familiaService;

@@ -15,9 +15,10 @@ namespace homecheck_be.Controllers
         private readonly FamiliaService _familiaService;
         private readonly UsuarioService _usuarioService;
 
-        public UsuarioController(UsuarioService usuarioService)
+        public UsuarioController(UsuarioService usuarioService, FamiliaService familiaService)
         {
             _usuarioService = usuarioService;
+            _familiaService = familiaService;
         }
 
         [HttpGet]
@@ -38,8 +39,8 @@ namespace homecheck_be.Controllers
             return usuario;
         }
 
-        [HttpGet("{id_familia:length(24)}/{id_user:length(24)}", Name = "familia")]
-        public ActionResult<List<Usuario>> GetUsuariosFamilia(string id_familia, string id_user)
+        [HttpGet("{id_familia:length(24)}")]
+        public ActionResult<List<Usuario>> UsuariosFamilia(string id_familia, string id_user)
         {
             Familia f = _familiaService.Get(id_familia);
 
@@ -58,15 +59,16 @@ namespace homecheck_be.Controllers
 
         }
 
-        [HttpGet("{id_familia:length(24)}/{id_user:length(24)}", Name = "familia/admin")]
-        public ActionResult<Usuario> GetAdminFamilia(string id_familia, string id_user)
+
+        [HttpGet("{id_familia:length(24)}")]
+        public ActionResult<Usuario> AdminFamilia(string id_familia)
         {
 
             Familia f = _familiaService.Get(id_familia);
 
             if (f != null)
             {
-                var adminFamilia = _usuarioService.GetAdminFamilia(id_user);
+                var adminFamilia = _usuarioService.GetAdminFamilia(id_familia);
 
                 if (adminFamilia == null)
                 {
@@ -79,15 +81,15 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpGet("{id_familia:length(24)}/{id_user:length(24)}", Name = "familia/miembros")]
-        public ActionResult<List<Usuario>> GetMiembrosFamilia(string id_familia, string id_user)
+        [HttpGet("{id_familia:length(24)}")]
+        public ActionResult<List<Usuario>> MiembrosFamilia(string id_familia)
         {
 
             Familia f = _familiaService.Get(id_familia);
 
             if (f != null)
             {
-                var adminFamilia = _usuarioService.GetMiembrosFamilia(id_user);
+                var adminFamilia = _usuarioService.GetMiembrosFamilia(id_familia);
 
                 if (adminFamilia == null)
                 {
