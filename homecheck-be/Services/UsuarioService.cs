@@ -49,7 +49,7 @@ namespace homecheck_be.Services
         public void Update(string id, Usuario usuarioIn) =>
             _usuarios.ReplaceOne(usuario => usuario.Id == id, usuarioIn);
 
-        public void Remove(Familia usuarioIn) =>
+        public void Remove(Usuario usuarioIn) =>
             _usuarios.DeleteOne(usuario => usuario.Id == usuarioIn.Id);
 
         public void Remove(string id) =>

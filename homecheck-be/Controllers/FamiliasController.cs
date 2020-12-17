@@ -26,18 +26,18 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Familia>> Get() =>
             _familiaService.Get();
 
-        [HttpGet("{id:length(24)}")]
+        [HttpGet("{id:length(30)}")]
         public ActionResult<Familia> Get(string id)
         {
-            //var familia = _familiaService.Get(id);
-            Console.WriteLine("hola");
-            /*if (familia == null)
+            var familia = _familiaService.Get(id);
+           
+            if (familia == null)
             {
                 return NotFound();
-            }*/
+            }
 
-            // return familia;
-            return null;
+            return familia;
+         
         }
 
         [HttpPost]
@@ -58,7 +58,7 @@ namespace homecheck_be.Controllers
             }
         }
 
-        [HttpPut("{id:length(24)}")]
+        [HttpPut("{id:length(30)}")]
         public IActionResult Update(string id, Familia familiaIn)
         {
             var familia = _familiaService.Get(id);
@@ -73,7 +73,7 @@ namespace homecheck_be.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id:length(30)}")]
         public IActionResult Delete(string id)
         {
             var familia = _familiaService.Get(id);

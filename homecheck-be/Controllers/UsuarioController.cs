@@ -10,7 +10,7 @@ namespace homecheck_be.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : Controller
     {
         private readonly FamiliaService _familiaService;
         private readonly UsuarioService _usuarioService;
@@ -26,7 +26,7 @@ namespace homecheck_be.Controllers
             _usuarioService.Get();
 
 
-        [HttpGet("{id:length(24)}", Name = "usuario")]
+        [HttpGet("{id}", Name = "usuario")]
         public ActionResult<Usuario> Get(string id)
         {
             var usuario = _usuarioService.Get(id);
@@ -39,14 +39,15 @@ namespace homecheck_be.Controllers
             return usuario;
         }
 
-        [HttpGet("{id_familia:length(24)}")]
-        public ActionResult<List<Usuario>> UsuariosFamilia(string id_familia, string id_user)
+        [HttpGet]
+        [Route("usuariosfamilia/{id}")]
+        public ActionResult<List<Usuario>> UsuariosFamilia(string id)
         {
-            Familia f = _familiaService.Get(id_familia);
+            Familia f = _familiaService.Get(id);
 
             if(f != null)
             {
-                var usuariosFamilia = _usuarioService.GetUsuariosFamilia(id_user);
+                var usuariosFamilia = _usuarioService.GetUsuariosFamilia(id);
 
                 if (usuariosFamilia == null)
                 {
@@ -60,15 +61,15 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpGet("{id_familia:length(24)}")]
-        public ActionResult<Usuario> AdminFamilia(string id_familia)
+        [HttpGet("adminfamilia/{id}", Name = "adminfamilia")]
+        public ActionResult<Usuario> AdminFamilia(string id)
         {
 
-            Familia f = _familiaService.Get(id_familia);
+            Familia f = _familiaService.Get(id);
 
             if (f != null)
             {
-                var adminFamilia = _usuarioService.GetAdminFamilia(id_familia);
+                var adminFamilia = _usuarioService.GetAdminFamilia(id);
 
                 if (adminFamilia == null)
                 {
@@ -81,15 +82,15 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpGet("{id_familia:length(24)}")]
-        public ActionResult<List<Usuario>> MiembrosFamilia(string id_familia)
+        [HttpGet("miembrosfamilia/{id}", Name = "miembrosfamilia")]
+        public ActionResult<List<Usuario>> MiembrosFamilia(string id)
         {
 
-            Familia f = _familiaService.Get(id_familia);
+            Familia f = _familiaService.Get(id);
 
             if (f != null)
             {
-                var adminFamilia = _usuarioService.GetMiembrosFamilia(id_familia);
+                var adminFamilia = _usuarioService.GetMiembrosFamilia(id);
 
                 if (adminFamilia == null)
                 {
@@ -102,10 +103,10 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpPost("{id_familia:length(24)}")]
-        public ActionResult<Usuario> Create(string id_familia, Usuario usuario)
+        [HttpPost("{id_familia:length(30)}")]
+        public ActionResult<Usuario> Create(string id, Usuario usuario)
         {
-            Familia f = _familiaService.Get(id_familia);
+            Familia f = _familiaService.Get(id);
 
             if (f != null)
             {
@@ -124,7 +125,7 @@ namespace homecheck_be.Controllers
             return NotFound();
         }
 
-        [HttpPut("{id_familia:length(24)}/{id_user:length(24)}")]
+        [HttpPut("{id}")]
         public IActionResult Update(string id, Usuario usuarioIn)
         {
             var usuario = _usuarioService.Get(id);
@@ -139,7 +140,7 @@ namespace homecheck_be.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             var usuario = _usuarioService.Get(id);

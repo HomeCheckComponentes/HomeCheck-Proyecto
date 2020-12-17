@@ -17,7 +17,7 @@ namespace homecheck_be.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _familias = database.GetCollection<Familia>("Familia");
+            _familias = database.GetCollection<Familia>("Familias");
         }
 
         public List<Familia> Get() =>
