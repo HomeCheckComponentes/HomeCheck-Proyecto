@@ -14,7 +14,7 @@ import { UsuarioList } from '../../models/usuario-list';
 export class PerfilFamiliaComponent implements OnInit {
   private familiaActual: Familia;
   private usuarios: UsuarioList[];
-  private familiaId: number = this.activatedRoute.snapshot.queryParams['id_familia'];
+  private familiaId: string = this.activatedRoute.snapshot.queryParams['id_familia'];
 
 
   constructor(private familiaService: FamiliaService, private usuariosService: UsuarioService,
@@ -26,7 +26,7 @@ export class PerfilFamiliaComponent implements OnInit {
     this.llenarFamilia();
   }
 
-  llenarSucursales() {
+  llenarUsuarioFamilia() {
     this.usuariosService.obtenerUsuariosFamilia(this.familiaActual.id)
       .subscribe(data => this.usuarios = data);
   }

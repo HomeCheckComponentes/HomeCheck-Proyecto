@@ -27,6 +27,16 @@ namespace homecheck_be.Services
         public Familia Get(string id) =>
             _familias.Find<Familia>(familia => familia.Id == id).FirstOrDefault();
 
+
+        public Familia GetFamilia(string id)
+        {
+            return _familias.Find<Familia>(familia => familia.Id == id).FirstOrDefault();
+        }
+            
+           
+           
+
+
         public Familia Create(Familia familia)
         {
             _familias.InsertOne(familia);

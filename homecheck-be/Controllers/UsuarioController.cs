@@ -25,6 +25,11 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Usuario>> Get() =>
             _usuarioService.Get();
 
+        [HttpGet("get02", Name = "Get02")]
+        public string Get02()
+        {
+            return "Get 2";
+        }
 
         [HttpGet("{id}", Name = "usuario")]
         public ActionResult<Usuario> Get(string id)
@@ -39,89 +44,63 @@ namespace homecheck_be.Controllers
             return usuario;
         }
 
-        [HttpGet]
+       
+        [HttpGet("{id}")]
         public ActionResult<List<Usuario>> UsuariosFamilia(string id)
         {
-            Familia f = _familiaService.Get(id);
+            var usuariosFamilia = _usuarioService.GetUsuariosFamilia(id);
 
-            if(f != null)
+            if (usuariosFamilia == null)
             {
-                var usuariosFamilia = _usuarioService.GetUsuariosFamilia(id);
-
-                if (usuariosFamilia == null)
-                {
-                    return NotFound();
-                }
-
-                return usuariosFamilia;
+                return NotFound();
             }
-            return NotFound();
+
+            return usuariosFamilia;
 
         }
 
-
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<Usuario> AdminFamilia(string id)
         {
 
-            Familia f = _familiaService.Get(id);
+            var adminFamilia = _usuarioService.GetAdminFamilia(id);
 
-            if (f != null)
+            if (adminFamilia == null)
             {
-                var adminFamilia = _usuarioService.GetAdminFamilia(id);
-
-                if (adminFamilia == null)
-                {
-                    return NotFound();
-                }
-
-                return adminFamilia;
+                return NotFound();
             }
-            return NotFound();
+
+            return adminFamilia;
         }
 
 
-        [HttpGet]
+        [HttpGet("miembrosfamilia/{id}")]
         public ActionResult<List<Usuario>> MiembrosFamilia(string id)
         {
+            var adminFamilia = _usuarioService.GetMiembrosFamilia(id);
 
-            Familia f = _familiaService.Get(id);
-
-            if (f != null)
+            if (adminFamilia == null)
             {
-                var adminFamilia = _usuarioService.GetMiembrosFamilia(id);
-
-                if (adminFamilia == null)
-                {
-                    return NotFound();
-                }
-
-                return adminFamilia;
+                return NotFound();
             }
-            return NotFound();
+
+            return adminFamilia;
         }
 
 
         [HttpPost("{id:length(30)}")]
-        public ActionResult<Usuario> Create(string id, Usuario usuario)
+        public ActionResult<Usuario> Nuevo(string id, Usuario usuario)
         {
-            Familia f = _familiaService.Get(id);
-
-            if (f != null)
+            try
             {
-                try
-                {
-                    _usuarioService.Create(usuario);
-                    return Ok();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    return BadRequest(new { message = "Error general al registrar el usuario. Vuelva a intertarlo en unos minutos." });
-                }
-
+                _usuarioService.Create(usuario);
+                return Ok();
             }
-            return NotFound();
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return BadRequest(new { message = "Error general al registrar el usuario. Vuelva a intertarlo en unos minutos." });
+            }
         }
 
         [HttpPut("{id}")]

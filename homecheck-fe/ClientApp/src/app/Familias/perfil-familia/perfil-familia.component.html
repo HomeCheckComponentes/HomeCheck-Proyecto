@@ -2,7 +2,9 @@
 <div class="col">
   <h2>Perfil de familia</h2>
   <h3>Familia:</h3>
-  <p>Bonilla</p>
+  <p>{{familiaActual.name}}</p>
+  <h3>Correo:</h3>
+  <p>{{familiaActual.correo}}</p>
 
 
   <h2>Lista de usuarios de familia</h2>
@@ -20,36 +22,21 @@
 
       </tr>
     </thead>
-    <tr>
-      <td>1234</td>
-      <td>Integrante</td>
-      <td>mariela</td>
-      <td>bonilla@gmail.com</td>
-      <td>AdminFamilia</td>
+    <tr *ngFor="let usuario of usuarios ">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.usertype}}</td>
+      <td>{{usuario.username}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.member}}</td>
+
       <td class="text-right">
-        <button class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i>Editar</button>&nbsp;
-        <button class="btn btn-outline-danger btn-sm">
-          <i class="far fa-trash-alt"></i>Eliminar
+        <button (click)="editar({{usuario}})" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i></button>&nbsp;
+        <button (click)="eliminar({{usuario.id}}, {{usuario.idfamilia}})" class="btn btn-outline-danger btn-sm">
+          <i class="far fa-trash-alt"></i>
         </button>
       </td>
     </tr>
-    <!--<tr *ngFor="let familia of familias ">
-          <td>{{usuario.id}}</td>
-          <td>{{usuario.usertype}}</td>
-          <td>{{usuario.username}}</td>
-          <td>{{usuario.email}}</td>
-          <td>{{usuario.member}}</td>+
-
-          <td class="text-right">
-            <button (click)="editar({{usuario}})" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i></button>&nbsp;
-            <button (click)="eliminar({{usuario.id}}, {{usuario.idfamilia}})" class="btn btn-outline-danger btn-sm">
-              <i class="far fa-trash-alt"></i>
-            </button>
-          </td>
-    </tr>-->
   </table>
 </div>
-
- </div>
 
 <app-nav-footer></app-nav-footer>
