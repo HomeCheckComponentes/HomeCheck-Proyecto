@@ -1,4 +1,4 @@
-<app-nav-menu></app-nav-menu>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,16 +30,34 @@
 
 <body>
 
-  <!-- Navigation -->
- <!-- <nav class="navbar navbar-light bg-light static-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">HomeCheck</a>
-      <a class="btn btn-primary" [routerLink]="['/familias/registrar-familia']">Registrar familia</a>
-      <a class="btn btn-primary" [routerLink]="['/familias/listar-familias']">Listar familias</a>
-    </div>
-  </nav>-->
 
-  <!-- Masthead -->
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Homecheck</a>
+      <a><img src="../../assets/img/logo_transparent2.png" width="70" height="60" /></a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+           [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li>
+            <a class="btn btn-primary" href="#">Iniciar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
   <header class="masthead text-white text-center">
     <div class="overlay"></div>
     <div class="container">
@@ -48,7 +66,7 @@
           <h1 class="mb-5">¡Empiece su organización de tareas con HomeCheck!</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        
+
         </div>
       </div>
     </div>
@@ -150,7 +168,18 @@
 
 
   <!-- Footer -->
-  <app-nav-footer></app-nav-footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto col-sm-7">
+
+          <p class="small mb-4 mb-lg-0">&copy; Homecheck 2020. All Rights Reserved.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer> 
 
   <!-- Bootstrap core JavaScript -->
   <script src="../../../assets/landingPage/vendor/jquery/jquery.min.js"></script>
