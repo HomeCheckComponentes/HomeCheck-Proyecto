@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace homecheck_be.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsuarioController : Controller
     {
@@ -40,7 +40,6 @@ namespace homecheck_be.Controllers
         }
 
         [HttpGet]
-        [Route("usuariosfamilia/{id}")]
         public ActionResult<List<Usuario>> UsuariosFamilia(string id)
         {
             Familia f = _familiaService.Get(id);
@@ -61,7 +60,7 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpGet("adminfamilia/{id}", Name = "adminfamilia")]
+        [HttpGet]
         public ActionResult<Usuario> AdminFamilia(string id)
         {
 
@@ -82,7 +81,7 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpGet("miembrosfamilia/{id}", Name = "miembrosfamilia")]
+        [HttpGet]
         public ActionResult<List<Usuario>> MiembrosFamilia(string id)
         {
 
@@ -103,7 +102,7 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpPost("{id_familia:length(30)}")]
+        [HttpPost("{id:length(30)}")]
         public ActionResult<Usuario> Create(string id, Usuario usuario)
         {
             Familia f = _familiaService.Get(id);
