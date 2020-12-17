@@ -47,11 +47,11 @@ export class FamiliaService {
     }
 
   modificarFamilia(familia: Familia): Observable<any> {
-    return this.http.put(this.baseUrl + '/familias?id=' + familia.id, familia)
+    return this.http.put(this.baseUrl + '/familias/' + familia.id, familia)
       }
 
       eliminarFamilia(id: string) {
-        return this.http.delete(this.baseUrl + 'familias?id=' + id)
+        return this.http.delete(this.baseUrl + 'familias/' + id)
     }
 
     obtenerTodasFamilias() {
@@ -61,7 +61,7 @@ export class FamiliaService {
 
 
   obtenerFamilia(familia: Familia) {
-    let endpointUrl = this.baseUrl + '/familia?id=' + familia.id;
+    let endpointUrl = this.baseUrl + '/familia/' + familia.id;
 
     return this.http.get<Familia>(endpointUrl);
     }
