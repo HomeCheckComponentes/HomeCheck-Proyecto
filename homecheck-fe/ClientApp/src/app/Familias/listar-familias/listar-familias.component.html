@@ -25,7 +25,6 @@
         <td>bonilla@gmail.com</td>
         <td><a class="btn btn-familia" href="/usuarios/usuarios-familia"> Ver integrantes de familia </a></td>
         <td class="text-right">
-          <button class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i>Editar</button>&nbsp;
           <button class="btn btn-outline-danger btn-sm">
             <i class="far fa-trash-alt"></i>Eliminar
           </button>
@@ -37,7 +36,6 @@
       <td>{{familia.correo}}</td>
       <td><a class="btn btn-familia" [routerLink]="['usuarios/usuarios-familia/{{familia.id}}']"> Ver integrates de familia </a></td>
       <td class="text-right">
-        <button (click)="editar({{familia}})" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i></button>&nbsp;
         <button (click)="eliminar({{familia.id}})" class="btn btn-outline-danger btn-sm">
           <i class="far fa-trash-alt"></i>
         </button>
