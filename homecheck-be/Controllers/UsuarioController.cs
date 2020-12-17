@@ -74,7 +74,7 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpGet("miembrosfamilia/{id}")]
+        [HttpGet("{id}")]
         public ActionResult<List<Usuario>> MiembrosFamilia(string id)
         {
             var adminFamilia = _usuarioService.GetMiembrosFamilia(id);
