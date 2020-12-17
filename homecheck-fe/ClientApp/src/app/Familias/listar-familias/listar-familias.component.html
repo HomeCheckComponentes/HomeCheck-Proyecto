@@ -30,17 +30,20 @@
           </button>
         </td>
       </tr>
-      <!--<tr *ngFor="let familia of familias ">
+      <tr *ngFor="let familia of familias ">
       <td>{{familia.id}}</td>
       <td>{{familia.name}}</td>
       <td>{{familia.correo}}</td>
-      <td><a class="btn btn-familia" [routerLink]="['usuarios/usuarios-familia/{{familia.id}}']"> Ver integrates de familia </a></td>
+      <td><a class="btn btn-familia" href="usuarios/usuarios-familia/{{familia.id}}"> Ver integrates de familia </a></td>
       <td class="text-right">
-        <button (click)="eliminar({{familia.id}})" class="btn btn-outline-danger btn-sm">
-          <i class="far fa-trash-alt"></i>
+        <button (click)="irPerfil(familia.id)" class="btn btn-outline-info btn-sm">
+          <i class="far fa-trash-alt"></i>Ver perfil
+        </button>
+        <button (click)="eliminar(familia.id)" class="btn btn-outline-danger btn-sm">
+          <i class="far fa-trash-alt"></i>Eliminar
         </button>
       </td>
-    </tr>-->
+    </tr>
     </table>
   </div>
 </div>

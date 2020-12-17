@@ -44,6 +44,10 @@ export class ListarFamiliasComponent implements OnInit {
    
   }
 
+  irPerfil(id: string) {
+    this.router.navigate(['familias/listar-familias/', 'perfil', id]);
+  }
+
   
 
     eliminar(id: string) {

@@ -14,15 +14,15 @@ namespace homecheck_be.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        /*public string descripcion { get; set;  }
+        public string descripcion { get; set; }
 
-        public string persona { get; set;  }
+        public string persona { get; set; }
 
-        public DateTime fechaAsignada { get; set;  }
+        public DateTime fechaAsignada { get; set; }
 
-        public DateTime fechaLimite { get; set;  }
+        public DateTime fechaLimite { get; set; }
 
-        public string estado { get; set; }*/  //posibles estados: completada, no se realizo
+        public string estado { get; set; }  //posibles estados: completada, no se realizo
 
 
 

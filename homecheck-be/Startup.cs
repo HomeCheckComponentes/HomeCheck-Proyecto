@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +15,7 @@ using homecheck_be.DatabaseSettings;
 using homecheck_be.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Server.IISIntegration;
+using Microsoft.AspNetCore.Hosting;
 
 namespace homecheck_be
 {
@@ -49,7 +50,7 @@ namespace homecheck_be
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IWebHostBuilder host)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -69,8 +70,7 @@ namespace homecheck_be
 
             app.UseRouting();
 
-            host.UseIIS();
-
+         
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
