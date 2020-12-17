@@ -29,14 +29,15 @@ namespace homecheck_be.Controllers
         [HttpGet("{id:length(24)}")]
         public ActionResult<Familia> Get(string id)
         {
-            var familia = _familiaService.Get(id);
-
-            if (familia == null)
+            //var familia = _familiaService.Get(id);
+            Console.WriteLine("hola");
+            /*if (familia == null)
             {
                 return NotFound();
-            }
+            }*/
 
-            return familia;
+            // return familia;
+            return null;
         }
 
         [HttpPost]

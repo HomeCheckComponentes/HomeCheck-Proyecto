@@ -1,0 +1,32 @@
+<app-nav-menu></app-nav-menu>
+<br>
+<h1 class="text-center">Modificar familia</h1>
+
+<form class="form-edit-famlia text-left form-group border border-light p-5">
+  <div class="form-row mb-4">
+    <div class="col">
+      <label for="name">Nombre de familia</label>
+      <input id="name" name="name" class="form-control"
+             [(ngModel)]="familia.name" minlength="3" #name="ngModel" type="text" required>
+
+      <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+           class="alert alert-danger">
+      </div>
+
+      <label for="email">Correo</label>
+      <input id="email" name="email" class="form-control"
+             [(ngModel)]="familia.email" minlength="3" #nombreLegal="ngModel" type="text" required>
+
+    </div>
+  </div>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col text-center">
+          <button type="button" class="btn btn-familia btn-lg btn-block" (click)="modificarFamilia()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+ <app-nav-footer></app-nav-footer>

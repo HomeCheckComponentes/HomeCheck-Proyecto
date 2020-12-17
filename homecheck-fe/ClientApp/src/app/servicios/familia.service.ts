@@ -46,17 +46,23 @@ export class FamiliaService {
       return this.http.get<FamiliaList[]>(endpointUrl);
     }
 
-    modificarFamilia(familia: Familia): Observable<any> {
-      return this.http.put(this.baseUrl + '/familias', familia)
+  modificarFamilia(familia: Familia): Observable<any> {
+    return this.http.put(this.baseUrl + '/familias?id=' + familia.id, familia)
       }
 
       eliminarFamilia(id: string) {
-        return this.http.delete(this.baseUrl + 'familias/?id=' + id)
+        return this.http.delete(this.baseUrl + 'familias?id=' + id)
     }
 
     obtenerTodasFamilias() {
       this.http.get(this.baseUrl + '/familias')
         .toPromise().then(res => this.listFamilias = res as Familia[])
     }
-    
+
+
+  obtenerFamilia(familia: Familia) {
+    let endpointUrl = this.baseUrl + '/familia?id=' + familia.id;
+
+    return this.http.get<Familia>(endpointUrl);
+    }
 }

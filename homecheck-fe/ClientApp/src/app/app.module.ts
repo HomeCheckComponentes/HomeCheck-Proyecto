@@ -20,6 +20,9 @@ import { RegistrarFamiliaComponent } from './Familias/registrar-familia/registra
 import { ListarFamiliasComponent } from './Familias/listar-familias/listar-familias.component';
 import { RegistrarUsuarioComponent } from './usuarios/registrar-usuario/registrar-usuario.component';
 import { ListarUsuariosfamiliaComponent } from './usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component';
+import { ModificarFamiliaComponent } from './Familias/modificar-familia/modificar-familia.component';
+import { ModificarUsuarioComponent } from './Usuarios/modificar-usuario/modificar-usuario.component';
+import { PerfilFamiliaComponent } from './Familias/perfil-familia/perfil-familia.component';
 
 enableProdMode();
 
@@ -35,7 +38,10 @@ enableProdMode();
     RegistrarFamiliaComponent,
     ListarFamiliasComponent,
     RegistrarUsuarioComponent,
-    ListarUsuariosfamiliaComponent   
+    ListarUsuariosfamiliaComponent,
+    ModificarFamiliaComponent,
+    ModificarUsuarioComponent,
+    PerfilFamiliaComponent   
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
