@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Cors;
 namespace homecheck_be.Controllers
 {
   
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class FamiliasController : ControllerBase
     {
@@ -26,7 +26,7 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Familia>> Get() =>
             _familiaService.Get();
 
-        [HttpGet("{id:length(30)}")]
+        [HttpGet("{id:length(30)}", Name = "GetFamilias}")]
         public ActionResult<Familia> Get(string id)
         {
             var familia = _familiaService.Get(id);
