@@ -28,7 +28,7 @@ namespace homecheck_be.Controllers
         [HttpGet("{id:length(24)}", Name = "GetTareas")]
         public ActionResult<Tareas> Get(string id)
         {
-            var tarea = _tareaService.Get(id);
+            var tarea = _tareaService.Get(id); 
 
             if (tarea == null)
             {

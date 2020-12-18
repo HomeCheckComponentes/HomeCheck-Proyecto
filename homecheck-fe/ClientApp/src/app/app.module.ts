@@ -48,28 +48,21 @@ enableProdMode();
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: "", component: LandingPageComponent },
+      { path: '', component: LandingPageComponent },
       { path: "familias/listar-familias", component: ListarFamiliasComponent },
-      {
-        path: "familias/registrar-familia",
-        component: RegistrarFamiliaComponent,
-      },
-      {
-        path: "familias/istar-familias/perfil/:id",
-        component: PerfilFamiliaComponent,
-      },
+      { path: "familias/registrar-familia",component: RegistrarFamiliaComponent},
+      { path: "familias/istar-familias/perfil/:id",component: PerfilFamiliaComponent},
       { path: "registroTareas", component: RegistroTareasComponent },
-      {
-        path: "usuarios/agregar-usuario/:id_familia",
-        component: RegistrarUsuarioComponent,
-      },
-      {
-        path: "usuarios/usuarios-familia/:id_familia",
-        component: ListarUsuariosfamiliaComponent,
-      },
-    ]),
+      { path: "usuarios/agregar-usuario/:id_familia",component: RegistrarUsuarioComponent },
+      { path: "usuarios/usuarios-familia/:id_familia", component: ListarUsuariosfamiliaComponent},      
+      { path: 'home', component: HomeComponent },
+      { path: 'tareas/registro-tareas', component: RegistroTareasComponent },
+    ])
+
   ],
-  providers: [],
+  providers: [
+      
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

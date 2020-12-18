@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-registro-tareas',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroTareasComponent implements OnInit {
 
-  constructor() { }
+  currentDate = new Date();
+  
+
+  constructor() {
+    
+  }
 
   ngOnInit() {
+
+    
   }
 
 }
