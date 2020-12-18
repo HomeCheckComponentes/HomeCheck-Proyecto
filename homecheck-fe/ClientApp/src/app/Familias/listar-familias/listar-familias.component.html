@@ -19,17 +19,6 @@
 
         </tr>
       </thead>
-      <tr>
-        <td>1234</td>
-        <td>Bonilla</td>
-        <td>bonilla@gmail.com</td>
-        <td><a class="btn btn-familia" href="/usuarios/usuarios-familia"> Ver integrantes de familia </a></td>
-        <td class="text-right">
-          <button class="btn btn-outline-danger btn-sm">
-            <i class="far fa-trash-alt"></i>Eliminar
-          </button>
-        </td>
-      </tr>
       <tr *ngFor="let familia of familias ">
       <td>{{familia.id}}</td>
       <td>{{familia.name}}</td>
@@ -39,7 +28,7 @@
         <button (click)="irPerfil(familia.id)" class="btn btn-outline-info btn-sm">
           <i class="far fa-trash-alt"></i>Ver perfil
         </button>
-        <button (click)="eliminar(familia.id)" class="btn btn-outline-danger btn-sm">
+        <button (click)="eliminar(familia)" class="btn btn-outline-danger btn-sm">
           <i class="far fa-trash-alt"></i>Eliminar
         </button>
       </td>

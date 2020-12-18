@@ -93,6 +93,7 @@ export class RegistrarFamiliaComponent implements OnInit {
       .subscribe(
         (response) => {
           this.isSendingData = false;
+          this.router.navigate(['/home']);
         },
         (error) => {
           this.isSendingData = false;

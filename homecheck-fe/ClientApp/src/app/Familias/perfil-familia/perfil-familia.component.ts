@@ -4,7 +4,7 @@ import { FamiliaService } from '../../servicios/familia.service';
 import { Familia } from '../../models/familia';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { UsuarioList } from '../../models/usuario-list';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-familia',
@@ -14,11 +14,11 @@ import { UsuarioList } from '../../models/usuario-list';
 export class PerfilFamiliaComponent implements OnInit {
   private familiaActual: Familia;
   private usuarios: UsuarioList[];
-  private familiaId: string = this.activatedRoute.snapshot.queryParams['id_familia'];
+  private familiaId: string = localStorage.getItem('id_familia');
 
 
   constructor(private familiaService: FamiliaService, private usuariosService: UsuarioService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, private router: Router) {
     this.familiaActual = new Familia();
   }
 
@@ -32,7 +32,7 @@ export class PerfilFamiliaComponent implements OnInit {
   }
 
   llenarFamilia() {
-    let familiaId: string = this.activatedRoute.snapshot.queryParams['id_familia'];
+    let familiaId: string = localStorage.getItem('id_familia');
     let familia = new Familia();
     familia.id = familiaId;
 
@@ -43,4 +43,8 @@ export class PerfilFamiliaComponent implements OnInit {
       });
   }
 
+  agregarUsuario() {
+    this.router.navigate(['/usuarios/agregar-usuario/' + this.familiaId]);
+  };
+  
 }
