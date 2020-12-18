@@ -30,7 +30,7 @@ export class TareasService {
         'Allow': 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
       })
     };
-    return this.http.post(this.baseUrl + '/tareas', tarea, httpOptions)
+    return this.http.post(this.baseUrl + '/tareas/create', tarea, httpOptions)
       .pipe(
         catchError((error) => {
           return throwError(error);

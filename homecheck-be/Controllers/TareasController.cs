@@ -41,9 +41,17 @@ namespace homecheck_be.Controllers
         [HttpPost]
         public ActionResult<Tareas> Create(Tareas tareas)
         {
-            _tareaService.Create(tareas);
+           
 
-            return CreatedAtRoute("GetFamilia", new { id = tareas.Id.ToString() }, tareas);
+            try
+            {
+                return _tareaService.Create(tareas); 
+
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, e.Message); 
+            }
         }
 
         [HttpPut("{id:length(24)}")]
