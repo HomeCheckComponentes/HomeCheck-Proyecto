@@ -114,7 +114,7 @@ namespace homecheck_be.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public IActionResult Usuario(string id)
         {
             var usuario = _usuarioService.Get(id);
 
@@ -127,6 +127,18 @@ namespace homecheck_be.Controllers
 
             return NoContent();
         }
+
+
+
+
+        [HttpDelete("{id}")]
+        public IActionResult UsersFamilia(string id)
+        {
+            _usuarioService.RemoveAllUserFamily(id);
+
+            return NoContent();
+        }
+
 
     }
 }

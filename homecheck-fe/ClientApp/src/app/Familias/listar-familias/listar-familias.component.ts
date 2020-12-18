@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FamiliaService } from '../../servicios/familia.service';
+import { UsuarioService } from '../../servicios/usuario.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { FamiliaList } from '../../models/familia-list';
@@ -17,6 +18,7 @@ export class ListarFamiliasComponent implements OnInit {
   private cambioFamilia: Familia;
   constructor(
     private service: FamiliaService,
+    private serviceUsuario: UsuarioService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
 
@@ -52,9 +54,14 @@ export class ListarFamiliasComponent implements OnInit {
   
 
   eliminar(familia: Familia) {
+
     this.service.eliminarFamilia(familia.id).subscribe(res => {
-      this.obtenerFamilias();
-      });
+        this.serviceUsuario.eliminarUsuariosFamilia(familia.id).subscribe(res2 => {
+          this.obtenerFamilias();
+        })
+    });
   }
 
+
+ 
 }

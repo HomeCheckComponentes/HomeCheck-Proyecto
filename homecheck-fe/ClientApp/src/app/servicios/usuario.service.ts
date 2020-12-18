@@ -58,7 +58,12 @@ export class UsuarioService {
 
 
   deleteUsuario(id_user: string) {
-    return this.http.delete(this.baseUrl + '/usuario/Delete/' + id_user)
+    return this.http.delete(this.baseUrl + '/usuario/Usuario/' + id_user)
 
+  }
+
+
+  eliminarUsuariosFamilia(id_familia: string) {
+    return this.http.delete(this.baseUrl + '/usuario/UsersFamilia/' + id_familia)
   }
 }
