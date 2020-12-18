@@ -1,12 +1,42 @@
 <app-nav-menu></app-nav-menu>
- <div class="col">
-   <h2>Perfil de familia</h2>
+<div class="col">
+  <h2>Perfil de familia</h2>
+  <h3>Familia:</h3>
+  <p>{{familiaActual.name}}</p>
+  <h3>Correo:</h3>
+  <p>{{familiaActual.correo}}</p>
 
 
+  <h2>Lista de usuarios de familia</h2>
 
-   <h2>Lista de usuarios de familia</h2>
+  <table class="table table-striped table-responsive-sm">
 
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Tipo de usuario</th>
+        <th>Nombre de usuario</th>
+        <th>Correo</th>
+        <th>Miembro de familia</th>
+        <th>Opciones</th>
 
- </div>
+      </tr>
+    </thead>
+    <tr *ngFor="let usuario of usuarios ">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.usertype}}</td>
+      <td>{{usuario.username}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.member}}</td>
+
+     <!--<td class="text-right">
+        <button (click)="editar({{usuario}})" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i></button>&nbsp;
+        <button (click)="eliminar({{usuario.id}}, {{usuario.idfamilia}})" class="btn btn-outline-danger btn-sm">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </td>-->
+    </tr>
+  </table>
+</div>
 
 <app-nav-footer></app-nav-footer>

@@ -4,7 +4,7 @@
     <a class="btn btn-familia" href="/familias/listar-familias">Volver a la lista de familias</a>
     <br />
     <br />
-    <h3 class="display-4 text-center">Agregar familia</h3>
+    <h3 class="display-4 text-center">Registrar familia</h3>
     <hr>
     <form class="form-familia" [formGroup]="familiaForm" (ngSubmit)="onSubmit()">
       <div class="row">
@@ -12,7 +12,7 @@
         <div class="form-group col-lg-6 col-md-6">
           <label>Nombre</label>
           <input type="text" class="form-control" name="nombre" id="nombre"
-                 formControlName="name" placeholder="bonilla" >
+                 formControlName="name" placeholder="bonilla">
         </div>
         <div class="form-group col-lg-6 col-md-6">
           <label>Correo</label>
@@ -20,7 +20,25 @@
                  formControlName="correo" placeholder="bonilla@gmail.com">
         </div>
       </div>
+      <h4>Registrar administrador</h4>
+      <div class="row">
 
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Nombre de usuario</label>
+          <input type="text" class="form-control" name="username" id="username"
+                 formControlName="username" placeholder="bonilla">
+        </div>
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Correo</label>
+          <input type="email" class="form-control" name="email" id="email"
+                 formControlName="email" placeholder="bonilla@gmail.com">
+        </div>
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Contraseña</label>
+          <input type="password" class="form-control" name="password" id="password"
+                 formControlName="password" placeholder="bonilla">
+        </div>
+      </div>
 
       <div class="form-group">
         <button [disabled]="!familiaForm.valid" type="submit"

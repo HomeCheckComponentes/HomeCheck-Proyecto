@@ -13,7 +13,7 @@ export class UsuarioService {
   list: UsuarioList[];
   listUsuarios: Usuario[];
   private baseUrl: string;
-
+  private idFamilia = localStorage.getItem('id_familia');
 
   constructor(
     @Inject('BASE_URL') baseUrl: string,
@@ -23,35 +23,34 @@ export class UsuarioService {
 
 
   postUsuario(formData: Usuario) {
-    return this.http.post(this.baseUrl + '/Usuario', formData);
+    return this.http.post(this.baseUrl + '/usuario/Nuevo', formData);
   }
 
-  putUsuario(id_user, id_familia : string) {
-    return this.http.put(this.baseUrl + '/Usuario?id_familia=' + id_familia +
-      '&id_user=' + id_user, null)
+  putUsuario(id_user, id_familia: string, usuario: Usuario) {
+    return this.http.put(this.baseUrl + '/usuario/' + id_user, this.formData)
   }
 
   fillList() {
-    this.http.get(this.baseUrl + '/Usuario')
+    this.http.get(this.baseUrl + '/usuario')
       .toPromise().then(res => this.list = res as UsuarioList[])
   }
 
   obtenerUsuariosFamilia(id_familia: string): Observable<UsuarioList[]> {
-    return this.http.get<UsuarioList[]>(this.baseUrl + '/Usuario/UsuariosFamilia?id_familia=' + id_familia);
+    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/UsuariosFamilia/' + id_familia);
   }
 
   obtenerMimembrosFamilia(id_familia: string): Observable<UsuarioList[]> {
-    return this.http.get<UsuarioList[]>(this.baseUrl + '/Usuario/MimebrosFamilia?id_familia=' + id_familia);
+    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/MiembrosFamilia/' + id_familia);
   }
 
   obtenerAdminFamilia(id_familia: string) {
-    let endpointUrl = this.baseUrl + '/Usuario/AdminFamilia?id_familia=' + id_familia;
+    let endpointUrl = this.baseUrl + '/usuario/AdminFamilia/' + id_familia;
     return this.http.get<Usuario>(endpointUrl);
   }
 
 
   deleteUsuario(id_familia, id_user: string) {
-    return this.http.delete(this.baseUrl + '/Usuario?id_familia=' + id_familia + '&id_user=' + id_user)
+    return this.http.delete(this.baseUrl + '/usuario/' + id_user)
 
   }
 }

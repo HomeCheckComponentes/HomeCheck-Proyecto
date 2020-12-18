@@ -33,7 +33,7 @@ export class ListarFamiliasComponent implements OnInit {
 
 
   public editar(familia: Familia) {
-
+    localStorage.setItem('id_familia', familia.id);
     this.cambioFamilia = familia;
   }
 
@@ -42,6 +42,11 @@ export class ListarFamiliasComponent implements OnInit {
       this.service.obtenerTodasFamilias();
     });
    
+  }
+
+  irPerfil(id: string) {
+    localStorage.setItem('id_familia', id);
+    this.router.navigate(['familias/listar-familias/', 'perfil', id]);
   }
 
   
