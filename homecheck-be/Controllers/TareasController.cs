@@ -21,11 +21,11 @@ namespace homecheck_be.Controllers
             _tareaService = tareaService;
         }
 
-        [HttpGet]
+        [HttpGet(Name ="GetTareas")]
         public ActionResult<List<Tareas>> Get() =>
             _tareaService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetTareas")]
+        [HttpGet("{id:length(24)}", Name = "GetTarea")]
         public ActionResult<Tareas> Get(string id)
         {
             var tarea = _tareaService.Get(id); 

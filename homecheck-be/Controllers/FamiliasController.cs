@@ -26,7 +26,7 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Familia>> Get() =>
             _familiaService.Get();
 
-        [HttpGet("{id:length(30)}", Name = "GetFamilias}")]
+        [HttpGet("{id:length(30)}", Name = "GetFamilias")]
         public ActionResult<Familia> Get(string id)
         {
             var familia = _familiaService.Get(id);

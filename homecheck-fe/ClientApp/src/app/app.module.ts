@@ -52,11 +52,11 @@ enableProdMode();
       { path: "familias/listar-familias", component: ListarFamiliasComponent },
       { path: "familias/registrar-familia",component: RegistrarFamiliaComponent},
       { path: "familias/istar-familias/perfil/:id",component: PerfilFamiliaComponent},
-      { path: "registroTareas", component: RegistroTareasComponent },
       { path: "usuarios/agregar-usuario/:id_familia",component: RegistrarUsuarioComponent },
       { path: "usuarios/usuarios-familia/:id_familia", component: ListarUsuariosfamiliaComponent},      
       { path: 'home', component: HomeComponent },
       { path: 'tareas/registro-tareas', component: RegistroTareasComponent },
+      { path: 'tareas/lista-tareas', component: ListarTareasComponent },
     ])
 
   ],

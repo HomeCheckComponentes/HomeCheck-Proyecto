@@ -1,7 +1,7 @@
 export class Tareas {
 
-  Id: string; 
-  duracion: string;
+  
+  descripcion: string;
   persona: string;
   fechaAsignada: Date;
   fechaLimite: Date;
