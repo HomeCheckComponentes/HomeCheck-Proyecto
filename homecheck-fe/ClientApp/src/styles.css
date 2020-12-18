@@ -25,6 +25,19 @@ code {
   border-color: #1861ac;
 }
 
+button {
+  background-color: #cf7500;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+  button:hover {
+    color: #cf7500;
+    background-color: #f4f4f4;
+  }
+
 
 
 

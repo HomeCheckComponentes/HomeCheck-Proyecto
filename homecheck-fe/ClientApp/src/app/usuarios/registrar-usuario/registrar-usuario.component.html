@@ -1,3 +1,5 @@
+<app-nav-menu></app-nav-menu>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-10 col-md-10">
@@ -16,6 +18,8 @@
           <option value="adminFamilia">Administrador de familia</option>
           <option value="integrante">Integrante familia</option>
         </select>
+
+     
 
 
       </div>
@@ -67,9 +71,12 @@
 
 
 
-    <button type="submit" class="btn btn-primary" [disabled]="isSendingData"
+    <button type="submit" class="btn" [disabled]="isSendingData"
             data-toggle="modal" data-target="#Modal">
       Registrar
     </button>
   </form>
 </div>
+
+
+<app-nav-footer></app-nav-footer>

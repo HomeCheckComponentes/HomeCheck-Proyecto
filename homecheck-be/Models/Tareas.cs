@@ -22,7 +22,7 @@ namespace homecheck_be.Models
 
         public DateTime fechaLimite { get; set; }
 
-        public string estado { get; set; }  //posibles estados: completada, no se realizo
+        public string estado { get; set; }  //posibles estados: completado(1) y no completo(0)
 
 
 

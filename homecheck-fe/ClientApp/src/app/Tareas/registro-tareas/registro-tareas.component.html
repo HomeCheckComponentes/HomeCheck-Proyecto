@@ -1,5 +1,36 @@
 <app-nav-menu></app-nav-menu>
+<body>
+  <div class="container container-fluid">
+    <a class="btn btn-familia" href="/familias/listar-familias">Volver a la lista de familias</a>
+    <br />
+    <br />
+    <h3 class="display-4 text-center">Agregar familia</h3>
+    <hr>
+    <form class="form-tarea" [formGroup]="ftareaForm" (ngSubmit)="onSubmit()">
+      <div class="row">
 
-<p>registro-tareas works!</p>
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="nombre"
+                 formControlName="name" placeholder="bonilla">
+        </div>
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Correo</label>
+          <input type="email" class="form-control" name="correo" id="correo"
+                 formControlName="correo" placeholder="bonilla@gmail.com">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <button [disabled]="!familiaForm.valid" type="submit"
+                class="btn btn-block btn-primary btn-familia" data-toggle="modal"
+                data-target="#Modal">
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
 
 <app-nav-footer></app-nav-footer>

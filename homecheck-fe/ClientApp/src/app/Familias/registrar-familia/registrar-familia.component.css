@@ -11,3 +11,15 @@
 .form-familia .btn-familia{
   margin: 4% 0 8%;
 }
+
+.container {
+  padding-bottom: 2.5rem;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  top: 0;
+  padding: 0;
+  left: 0;
+  margin: 0;
+  margin-left: 13vw;
+
+}

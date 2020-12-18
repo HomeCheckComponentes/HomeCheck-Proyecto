@@ -2,7 +2,7 @@
 
 
 
-  <div class=" page-content">
+  <div class=" page-content ">
 
     <div class="contenido">
       <h1>Bienvenido a HomeCheck</h1>
@@ -10,7 +10,7 @@
     </div>
 
 
-    <div class="inicio">
+    <div class="inicio ">
 
       <div class="inicio-container">
 
@@ -31,10 +31,13 @@
           <div class="inicio-sesion">
             <button class="btn-sub" type="submit">Iniciar sesión</button><br />
 
-          </div>  
+          </div>
           <div class="registrarse">
             <label>¿No es miembro?</label><br />
-          <button type="button">Registrarse</button></div>
+
+             <a [routerLink]="['/usuarios/agregar-usuario']"> <button type="button">Registrarse</button></a>
+          </div>
+
 
         </form>
 

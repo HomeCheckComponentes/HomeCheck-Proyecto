@@ -53,7 +53,7 @@ export class RegistrarFamiliaComponent implements OnInit {
       .subscribe(
         (response) => {
           this.isSendingData = false;
-
+          console.log(response);
         },
         (error) => {
           this.isSendingData = false;
