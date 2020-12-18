@@ -25,11 +25,6 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Usuario>> Get() =>
             _usuarioService.Get();
 
-        [HttpGet("get02", Name = "Get02")]
-        public string Get02()
-        {
-            return "Get 2";
-        }
 
         [HttpGet("{id}", Name = "usuario")]
         public ActionResult<Usuario> Get(string id)

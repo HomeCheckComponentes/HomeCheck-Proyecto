@@ -19,7 +19,8 @@ export class ListarUsuariosfamiliaComponent implements OnInit {
 
   private usuarios: UsuarioList[];
   private usuarioUpdate: Usuario;
-  private familiaId: string = this.activatedRoute.snapshot.queryParams['id_familia'];
+  private familiaId: string = localStorage.getItem('id_familia');
+
 
 
   constructor(
@@ -39,24 +40,9 @@ export class ListarUsuariosfamiliaComponent implements OnInit {
   }
 
 
-  public editar(usuario: Usuario) {
-
-    this.usuarioUpdate = usuario;
-  }
-
-  public completarModificar(usuario: Usuario) {
-    this.usuarioService.putUsuario(usuario.id, usuario.idfamilia, usuario).subscribe(res => {
-      this.service.obtenerTodasFamilias();
-    });
-
-  }
-
-  irPerfil(id: string) {
-    localStorage.setItem('id_usuario', id);
-    this.router.navigate(['familias/listar-familias/', 'perfil', id]);
-  }
-
-
+  agregarUsuario() {
+    this.router.navigate(['/usuarios/agregar-usuario/' + this.familiaId]);
+  };
 
   eliminar(id: string) {
     this.service.eliminarFamilia(id).subscribe(res => {
