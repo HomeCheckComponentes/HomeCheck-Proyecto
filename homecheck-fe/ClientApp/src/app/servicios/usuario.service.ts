@@ -35,6 +35,14 @@ export class UsuarioService {
       .toPromise().then(res => this.list = res as UsuarioList[])
   }
 
+
+
+  obtenerTodosUsuarios() {
+    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/Get');
+
+  }
+
+
   obtenerUsuariosFamilia(id_familia: string): Observable<UsuarioList[]> {
     return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/UsuariosFamilia/' + id_familia);
   }
@@ -49,8 +57,8 @@ export class UsuarioService {
   }
 
 
-  deleteUsuario(id_familia, id_user: string) {
-    return this.http.delete(this.baseUrl + '/usuario/Delete' + id_user)
+  deleteUsuario(id_user: string) {
+    return this.http.delete(this.baseUrl + '/usuario/Delete/' + id_user)
 
   }
 }

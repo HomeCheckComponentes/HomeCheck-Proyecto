@@ -61,7 +61,7 @@ export class FamiliaService {
 
 
   obtenerFamilia(familia: Familia) {
-    let endpointUrl = this.baseUrl + '/familia/' + familia.id;
+    let endpointUrl = this.baseUrl + '/familias/' + familia.id;
 
     return this.http.get<Familia>(endpointUrl);
     }

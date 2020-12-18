@@ -51,10 +51,10 @@ export class ListarFamiliasComponent implements OnInit {
 
   
 
-    eliminar(id: string) {
-      this.service.eliminarFamilia(id).subscribe(res => {
-        this.service.obtenerTodasFamilias();
+  eliminar(familia: Familia) {
+    this.service.eliminarFamilia(familia.id).subscribe(res => {
+      this.obtenerFamilias();
       });
-    }
+  }
 
 }
