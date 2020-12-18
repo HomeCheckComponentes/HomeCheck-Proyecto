@@ -26,7 +26,7 @@ namespace homecheck_be.Controllers
         public ActionResult<List<Familia>> Get() =>
             _familiaService.Get();
 
-        [HttpGet("{id:length(30)}")]
+        [HttpGet("{id:length(30)}", Name = "GetFamilias}")]
         public ActionResult<Familia> Get(string id)
         {
             var familia = _familiaService.Get(id);
@@ -41,15 +41,14 @@ namespace homecheck_be.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Familia familia)
+        public ActionResult<Familia> Create(Familia familia)
         {
            
 
             //return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
             try
             {
-                _familiaService.Create(familia);
-                return Ok();
+                return _familiaService.Create(familia);
 
             }
             catch (Exception ex)
