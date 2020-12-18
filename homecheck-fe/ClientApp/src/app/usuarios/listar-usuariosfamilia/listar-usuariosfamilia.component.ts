@@ -7,6 +7,7 @@ import { Familia } from '../../models/familia';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { UsuarioList } from '../../models/usuario-list';
 import { Usuario } from '../../models/usuario';
+import { Local } from 'protractor/built/driverProviders';
 
 
 @Component({
@@ -51,6 +52,7 @@ export class ListarUsuariosfamiliaComponent implements OnInit {
   }
 
   irPerfil(id: string) {
+    localStorage.setItem('id_usuario', id);
     this.router.navigate(['familias/listar-familias/', 'perfil', id]);
   }
 

@@ -13,7 +13,7 @@ export class UsuarioService {
   list: UsuarioList[];
   listUsuarios: Usuario[];
   private baseUrl: string;
-
+  private idFamilia = localStorage.getItem('id_familia');
 
   constructor(
     @Inject('BASE_URL') baseUrl: string,
@@ -23,7 +23,7 @@ export class UsuarioService {
 
 
   postUsuario(formData: Usuario) {
-    return this.http.post(this.baseUrl + '/Usuusuarioario', formData);
+    return this.http.post(this.baseUrl + '/usuario/Nuevo', formData);
   }
 
   putUsuario(id_user, id_familia: string, usuario: Usuario) {
@@ -36,15 +36,15 @@ export class UsuarioService {
   }
 
   obtenerUsuariosFamilia(id_familia: string): Observable<UsuarioList[]> {
-    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/UsuariosFamilia?id=' + id_familia);
+    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/UsuariosFamilia/' + id_familia);
   }
 
   obtenerMimembrosFamilia(id_familia: string): Observable<UsuarioList[]> {
-    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/MimebrosFamilia?id_familia=' + id_familia);
+    return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/MiembrosFamilia/' + id_familia);
   }
 
   obtenerAdminFamilia(id_familia: string) {
-    let endpointUrl = this.baseUrl + '/usuario/AdminFamilia?id_familia=' + id_familia;
+    let endpointUrl = this.baseUrl + '/usuario/AdminFamilia/' + id_familia;
     return this.http.get<Usuario>(endpointUrl);
   }
 

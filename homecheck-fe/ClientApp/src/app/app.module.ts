@@ -51,7 +51,7 @@ enableProdMode();
     RouterModule.forRoot([
       { path: '', component: LandingPageComponent },
       { path: 'familias/listar-familias', component: ListarFamiliasComponent },
-      { path: 'familias/registrar-familia/:id', component: RegistrarFamiliaComponent },
+      { path: 'familias/registrar-familia', component: RegistrarFamiliaComponent },
       { path: 'familias/istar-familias/perfil/:id', component: PerfilFamiliaComponent },
       { path: 'registroTareas', component: RegistroTareasComponent },
       { path: 'usuarios/agregar-usuario/:id_familia', component: RegistrarUsuarioComponent },

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Cors;
 namespace homecheck_be.Controllers
 {
   
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class FamiliasController : ControllerBase
     {
@@ -41,15 +41,14 @@ namespace homecheck_be.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Familia familia)
+        public ActionResult<Familia> Create(Familia familia)
         {
            
 
             //return CreatedAtRoute("GetFamilia", new { id = familia.Id.ToString() }, familia);
             try
             {
-                _familiaService.Create(familia);
-                return Ok();
+                return _familiaService.Create(familia);
 
             }
             catch (Exception ex)

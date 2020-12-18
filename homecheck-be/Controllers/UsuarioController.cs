@@ -88,8 +88,8 @@ namespace homecheck_be.Controllers
         }
 
 
-        [HttpPost("{id:length(30)}")]
-        public ActionResult<Usuario> Nuevo(string id, Usuario usuario)
+        [HttpPost]
+        public ActionResult<Usuario> Nuevo(Usuario usuario)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace homecheck_be.Controllers
             {
                 return NotFound();
             }
-
+            usuario.IdFamilia = id;
             _usuarioService.Update(id, usuarioIn);
 
             return NoContent();
