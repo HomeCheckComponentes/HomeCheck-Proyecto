@@ -39,7 +39,9 @@ namespace homecheck_be.Controllers
             return usuario;
         }
 
-       
+
+
+
         [HttpGet("{id}")]
         public ActionResult<List<Usuario>> UsuariosFamilia(string id)
         {
@@ -80,6 +82,15 @@ namespace homecheck_be.Controllers
             }
 
             return adminFamilia;
+        }
+
+        [HttpGet]
+        public ActionResult<Usuario> LoginUsuario(Usuario usuario)
+        {
+            var user = _usuarioService.GetByEmail(usuario.Email, usuario.Password);
+            if (usuario == null)
+                return NotFound(new { message = "Usuario o Contraseña incorrecta." });
+            return Ok(user);
         }
 
 
