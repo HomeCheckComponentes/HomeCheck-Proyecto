@@ -27,11 +27,11 @@ export class UsuarioService {
   }
 
   putUsuario(id_user, id_familia: string, usuario: Usuario) {
-    return this.http.put(this.baseUrl + '/usuario/' + id_user, this.formData)
+    return this.http.put(this.baseUrl + '/usuario/Update' + id_user, this.formData)
   }
 
   fillList() {
-    this.http.get(this.baseUrl + '/usuario')
+    this.http.get(this.baseUrl + '/usuario/Get')
       .toPromise().then(res => this.list = res as UsuarioList[])
   }
 
@@ -50,7 +50,7 @@ export class UsuarioService {
 
 
   deleteUsuario(id_familia, id_user: string) {
-    return this.http.delete(this.baseUrl + '/usuario/' + id_user)
+    return this.http.delete(this.baseUrl + '/usuario/Delete' + id_user)
 
   }
 }
