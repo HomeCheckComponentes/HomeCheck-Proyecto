@@ -20,9 +20,8 @@ namespace homecheck_be.Services
             _usuarios = database.GetCollection<Usuario>("Usuarios");
         }
 
-        public bool UsuarioExists(string email, string password) =>
-            _usuarios.Find(usuario => usuario.Email.Equals(email) &&
-                    usuario.Password.Equals(password));
+        public Usuario GetByEmail(string email, string password) =>
+            _usuarios.Find(usuario => usuario.Email.Equals(email) && usuario.Password.Equals(password)).FirstOrDefault();
 
         public List<Usuario> Get() =>
            _usuarios.Find(usuario => true).ToList();
