@@ -20,6 +20,10 @@ namespace homecheck_be.Services
             _usuarios = database.GetCollection<Usuario>("Usuarios");
         }
 
+        public bool UsuarioExists(string email, string password) =>
+            _usuarios.Find(usuario => usuario.Email.Equals(email) &&
+                    usuario.Password.Equals(password));
+
         public List<Usuario> Get() =>
            _usuarios.Find(usuario => true).ToList();
 
@@ -27,7 +31,7 @@ namespace homecheck_be.Services
         public List<Usuario> GetUsuariosFamilia(string id) =>
             _usuarios.Find(usuario => usuario.IdFamilia.Equals(id)).ToList();
 
-        
+
         public List<Usuario> GetMiembrosFamilia(string id) =>
          _usuarios.Find(usuario => usuario.IdFamilia.Equals(id) && usuario.Member.Equals("Integrante")).ToList();
 
