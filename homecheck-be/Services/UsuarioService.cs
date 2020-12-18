@@ -57,5 +57,8 @@ namespace homecheck_be.Services
 
         public void Remove(string id) =>
             _usuarios.DeleteOne(usuario => usuario.Id == id);
+
+        public void RemoveAllUserFamily(string id) =>
+            _usuarios.DeleteMany(usuario => usuario.IdFamilia == id);
     }
 }

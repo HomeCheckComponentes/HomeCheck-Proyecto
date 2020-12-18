@@ -22,6 +22,7 @@ import { ListarUsuariosfamiliaComponent } from "./usuarios/listar-usuariosfamili
 import { ModificarFamiliaComponent } from "./Familias/modificar-familia/modificar-familia.component";
 import { ModificarUsuarioComponent } from "./usuarios/modificar-usuario/modificar-usuario.component";
 import { PerfilFamiliaComponent } from "./Familias/perfil-familia/perfil-familia.component";
+import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
 
 enableProdMode();
 
@@ -41,6 +42,7 @@ enableProdMode();
     ModificarFamiliaComponent,
     ModificarUsuarioComponent,
     PerfilFamiliaComponent,
+    ListarUsuariosComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
@@ -51,12 +53,13 @@ enableProdMode();
       { path: '', component: LandingPageComponent },
       { path: "familias/listar-familias", component: ListarFamiliasComponent },
       { path: "familias/registrar-familia",component: RegistrarFamiliaComponent},
-      { path: "familias/istar-familias/perfil/:id",component: PerfilFamiliaComponent},
+      { path: "familias/listar-familias/perfil/:id",component: PerfilFamiliaComponent},
       { path: "registroTareas", component: RegistroTareasComponent },
       { path: "usuarios/agregar-usuario/:id_familia",component: RegistrarUsuarioComponent },
       { path: "usuarios/usuarios-familia/:id_familia", component: ListarUsuariosfamiliaComponent},      
       { path: 'home', component: HomeComponent },
       { path: 'tareas/registro-tareas', component: RegistroTareasComponent },
+      { path: 'usuarios', component: ListarUsuariosComponent },
     ])
 
   ],

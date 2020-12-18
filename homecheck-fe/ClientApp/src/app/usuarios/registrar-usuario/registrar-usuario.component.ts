@@ -25,21 +25,16 @@ export class RegistrarUsuarioComponent implements OnInit {
     private serviceUsuario: UsuarioService,
     private router: Router,
     private route: ActivatedRoute) {
-    //this.id_familia = JSON.parse(localStorage.getItem('id_familia')).usuario.idfamilia;
+    this.id_familia = localStorage.getItem('id_familia');
   }
-  username: string;
-  password: string;
-  email: string;
-  member: string;
-  usertype: string;
-  idfamilia: string;
+ 
   ngOnInit() {
     this.usuarioForm = new FormGroup({
-      Username: new FormControl('', [Validators.required, Validators.email]),
-      UserType: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [Validators.required]),
-      Member: new FormControl('', [Validators.required]),
-      Password: new FormControl('', [Validators.required])
+      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      member: new FormControl('', [Validators.required]),
+      usertype: new FormControl('', [Validators.required])
     });
   }
 
@@ -50,11 +45,11 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   sanitizeData(data: FormGroup): Usuario {
     let nuevoUsuario: Usuario = new Usuario();
-    nuevoUsuario.username = this.usuarioForm.controls['Username'].value;
-    nuevoUsuario.email = this.usuarioForm.controls['Email'].value;
-    nuevoUsuario.usertype = this.usuarioForm.controls['UserType'].value;
-    nuevoUsuario.member = this.usuarioForm.controls['Member'].value;
-    nuevoUsuario.password = this.usuarioForm.controls['Password'].value;
+    nuevoUsuario.username = this.usuarioForm.controls['username'].value;
+    nuevoUsuario.email = this.usuarioForm.controls['email'].value;
+    nuevoUsuario.usertype = this.usuarioForm.controls['usertype'].value;
+    nuevoUsuario.member = this.usuarioForm.controls['member'].value;
+    nuevoUsuario.password = this.usuarioForm.controls['password'].value;
     nuevoUsuario.idfamilia = this.id_familia;
 
     return nuevoUsuario;
@@ -70,7 +65,7 @@ export class RegistrarUsuarioComponent implements OnInit {
       .subscribe(
         (response) => {
           this.isSendingData = false;
-
+          this.router.navigate(['/familias/listar-familias/perfil/' + this.id_familia]);
         },
         (error) => {
           this.isSendingData = false;

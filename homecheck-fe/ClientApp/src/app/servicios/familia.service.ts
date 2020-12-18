@@ -50,8 +50,10 @@ export class FamiliaService {
     return this.http.put(this.baseUrl + '/familias/' + familia.id, familia)
       }
 
-      eliminarFamilia(id: string) {
-        return this.http.delete(this.baseUrl + 'familias/' + id)
+  eliminarFamilia(id: string) {
+    this.http.delete(this.baseUrl + '/usuario/UsersFamilia/' + id);
+    return this.http.delete(this.baseUrl + '/familias/' + id);
+        
     }
 
     obtenerTodasFamilias() {
@@ -61,7 +63,7 @@ export class FamiliaService {
 
 
   obtenerFamilia(familia: Familia) {
-    let endpointUrl = this.baseUrl + '/familia/' + familia.id;
+    let endpointUrl = this.baseUrl + '/familias/' + familia.id;
 
     return this.http.get<Familia>(endpointUrl);
     }
