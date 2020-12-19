@@ -1,9 +1,15 @@
 <app-nav-menu></app-nav-menu>
 <body>
   <div class="container container-fluid">
-    <a class="btn btn-familia" href="/familias/listar-familias">Volver a la lista de familias</a>
+    <div>
+      <div class="menu">
+        <a class="btn btn-familia" href="/familias/registrar-familia">Listar familia</a>
+        <a class="btn btn-familia" href="/usuarios">Listar usuarios</a>
+        <a class="btn btn-familia" href="#">Listar tareas</a>
+      </div>
+    </div>
     <br />
-    <br />
+    <hr />
     <h3 class="display-4 text-center">Registrar familia</h3>
     <hr>
     <form class="form-familia" [formGroup]="familiaForm" (ngSubmit)="onSubmit()">

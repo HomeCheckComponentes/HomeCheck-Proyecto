@@ -52,7 +52,14 @@ button {
 }
 
 
+.menu {
+  display: inline;
+}
 
+  .menu a {
+    display: inline;
+    margin: 0 5%;
+  }
 
 
 
