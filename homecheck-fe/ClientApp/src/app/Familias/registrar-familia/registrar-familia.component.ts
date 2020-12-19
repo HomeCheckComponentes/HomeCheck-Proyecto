@@ -68,7 +68,7 @@ export class RegistrarFamiliaComponent implements OnInit {
           adminFamilia.email = this.familiaForm.controls['email'].value;
           adminFamilia.password = this.familiaForm.controls['password'].value;
           adminFamilia.member = "adminFamilia";
-          adminFamilia.usertype = "1";
+          adminFamilia.usertype = "2";
           adminFamilia.idfamilia = response['id'];
           this.registrarUsuario(adminFamilia);
         },
