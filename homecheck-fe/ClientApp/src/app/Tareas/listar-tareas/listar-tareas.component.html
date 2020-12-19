@@ -31,7 +31,7 @@
               <td>{{tarea.fechaLimite | date:'yyyy-MM-dd'}}</td>
               <td>{{tarea.persona}}</td>
               <td class="text-right">
-                <input type="checkbox" [checked]="tarea.estado == 1" (change)="changed(tarea,tarea.estado == 0 ? '1' : '0')" value="{{}}" />
+                <input type="checkbox" [checked]="tarea.estado == 1"  (change)="changed(tarea, tarea.id)" />
                 <span >{{tarea.estado == 0 ? 'Incompleto' : 'Completo'}}</span>
               </td>
               <td class="text-right">

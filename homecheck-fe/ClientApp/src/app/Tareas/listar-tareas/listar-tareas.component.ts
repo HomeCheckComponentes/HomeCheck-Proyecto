@@ -33,6 +33,12 @@ export class ListarTareasComponent implements OnInit {
 
     console.log(tarea, id);
 
+    if (tarea.estado == '0') {
+      tarea.estado = '1';
+    } else {
+      tarea.estado = '0'; 
+    }
+
     this.service.modificarTarea(tarea, id).subscribe(res => { this.obtenerTodo(); }); 
   }
 
