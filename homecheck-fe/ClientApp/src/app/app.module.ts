@@ -20,7 +20,6 @@ import { ListarFamiliasComponent } from "./Familias/listar-familias/listar-famil
 import { RegistrarUsuarioComponent } from "./usuarios/registrar-usuario/registrar-usuario.component";
 import { ListarUsuariosfamiliaComponent } from "./usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component";
 import { ModificarFamiliaComponent } from "./Familias/modificar-familia/modificar-familia.component";
-import { ModificarUsuarioComponent } from "./usuarios/modificar-usuario/modificar-usuario.component";
 import { PerfilFamiliaComponent } from "./Familias/perfil-familia/perfil-familia.component";
 import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
 import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
@@ -42,7 +41,6 @@ enableProdMode();
     RegistrarUsuarioComponent,
     ListarUsuariosfamiliaComponent,
     ModificarFamiliaComponent,
-    ModificarUsuarioComponent,
     PerfilFamiliaComponent,
     ListarUsuariosComponent,
     EditarUsuariosComponent,

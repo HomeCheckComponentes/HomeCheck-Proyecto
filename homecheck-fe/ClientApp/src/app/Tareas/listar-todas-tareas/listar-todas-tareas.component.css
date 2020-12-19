@@ -1,0 +1,10 @@
+.container-fluid {
+  padding-bottom: 2.5rem;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  top: 0;
+  padding: 0;
+  left: 0;
+  margin: 0;
+  margin-bottom: 80px;
+}
