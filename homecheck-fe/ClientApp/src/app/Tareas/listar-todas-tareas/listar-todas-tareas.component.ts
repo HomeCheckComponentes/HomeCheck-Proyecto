@@ -10,8 +10,8 @@ import { TareasService } from '../../servicios/tareas.service';
 export class ListarTodasTareasComponent implements OnInit {
   public selectedTarea: Tareas = null;
 
-  private isChecked: Boolean; 
-  constructor(private service: TareasService) { }
+  public isChecked: Boolean; 
+  constructor(public service: TareasService) { }
 
   ngOnInit() {
 

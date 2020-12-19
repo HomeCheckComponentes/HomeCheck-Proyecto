@@ -13,13 +13,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./perfil-familia.component.css']
 })
 export class PerfilFamiliaComponent implements OnInit {
-  private familiaActual: Familia;
-  private usuarios: UsuarioList[];
-  private familiaId: string = localStorage.getItem('id_familia');
+  public familiaActual: Familia;
+  public usuarios: UsuarioList[];
+  public familiaId: string = localStorage.getItem('id_familia');
 
 
-  constructor(private familiaService: FamiliaService, private usuariosService: UsuarioService,
-    private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(public familiaService: FamiliaService, public usuariosService: UsuarioService,
+    public activatedRoute: ActivatedRoute, public router: Router) {
     this.familiaActual = new Familia();
   }
 

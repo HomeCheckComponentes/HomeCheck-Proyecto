@@ -17,18 +17,18 @@ import { strict } from 'assert';
 })
 export class ListarUsuariosComponent implements OnInit {
 
-  private usuariosObservable: Observable<UsuarioList[]>;
-  private usuarios: UsuarioList[];
-  private users: UsuarioList[];
-  private usuarioUpdate: Usuario;
-  private familiaId: string = localStorage.getItem('id_familia');
-  private familia: Observable<Familia>;
-  private id: string;
+  public usuariosObservable: Observable<UsuarioList[]>;
+  public usuarios: UsuarioList[];
+  public users: UsuarioList[];
+  public usuarioUpdate: Usuario;
+  public familiaId: string = localStorage.getItem('id_familia');
+  public familia: Observable<Familia>;
+  public id: string;
 
   constructor(
-    private serviceFamilia: FamiliaService, private usuarioService: UsuarioService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    public serviceFamilia: FamiliaService, public usuarioService: UsuarioService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute) {
 
   }
 

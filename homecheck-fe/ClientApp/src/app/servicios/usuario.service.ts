@@ -14,14 +14,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class UsuarioService {
   formData: UsuarioList;
   list: UsuarioList[];
-  private idFamiliaUsuario: String;
-  private usuario: Usuario;
+  public idFamiliaUsuario: String;
+  public usuario: Usuario;
   listUsuarios: Usuario[];
-  private baseUrl: string;
-  private idFamilia = localStorage.getItem("id_familia");
+  public baseUrl: string;
+  public idFamilia = localStorage.getItem("id_familia");
 
-  constructor(@Inject("BASE_URL") baseUrl: string, private http: HttpClient,
-    private router: Router,) {
+  constructor(@Inject("BASE_URL") baseUrl: string, public http: HttpClient,
+    public router: Router,) {
     this.baseUrl = baseUrl;
   }
 

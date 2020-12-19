@@ -15,20 +15,20 @@ import { FamiliaService } from '../../servicios/familia.service';
 })
 export class RegistrarFamiliaComponent implements OnInit {
 
-  private familia: Familia;
-  private usuario: Usuario;
+  public familia: Familia;
+  public usuario: Usuario;
   public familiaForm: FormGroup;
-  private submitted: boolean = false;
-  private error: object = null;
-  private registerComplete: boolean = false;
-  private isSendingData: boolean = false;
+  public submitted: boolean = false;
+  public error: object = null;
+  public registerComplete: boolean = false;
+  public isSendingData: boolean = false;
   
 
 
-  constructor(private service: FamiliaService,
-    private serviceUsuario: UsuarioService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+  constructor(public service: FamiliaService,
+    public serviceUsuario: UsuarioService,
+    public router: Router,
+    public route: ActivatedRoute) { }
 
 
   ngOnInit() {

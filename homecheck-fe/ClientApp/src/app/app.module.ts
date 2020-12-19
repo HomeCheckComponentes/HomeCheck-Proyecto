@@ -19,11 +19,10 @@ import { RegistrarFamiliaComponent } from "./Familias/registrar-familia/registra
 import { ListarFamiliasComponent } from "./Familias/listar-familias/listar-familias.component";
 import { RegistrarUsuarioComponent } from "./usuarios/registrar-usuario/registrar-usuario.component";
 import { ListarUsuariosfamiliaComponent } from "./usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component";
-import { ModificarFamiliaComponent } from "./Familias/modificar-familia/modificar-familia.component";
 import { PerfilFamiliaComponent } from "./Familias/perfil-familia/perfil-familia.component";
-import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
-import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
-import { ListarTodasTareasComponent } from './Tareas/listar-todas-tareas/listar-todas-tareas.component';
+import { ListarUsuariosComponent } from "./usuarios/listar-usuarios/listar-usuarios.component";
+import { EditarUsuariosComponent } from "./usuarios/editar-usuarios/editar-usuarios.component";
+import { ListarTodasTareasComponent } from "./Tareas/listar-todas-tareas/listar-todas-tareas.component";
 
 enableProdMode();
 
@@ -40,7 +39,6 @@ enableProdMode();
     ListarFamiliasComponent,
     RegistrarUsuarioComponent,
     ListarUsuariosfamiliaComponent,
-    ModificarFamiliaComponent,
     PerfilFamiliaComponent,
     ListarUsuariosComponent,
     EditarUsuariosComponent,
@@ -52,25 +50,34 @@ enableProdMode();
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: LandingPageComponent },
+      { path: "", component: LandingPageComponent },
       { path: "familias/listar-familias", component: ListarFamiliasComponent },
-      { path: "familias/registrar-familia",component: RegistrarFamiliaComponent},
-      { path: "familias/listar-familias/perfil/:id",component: PerfilFamiliaComponent},
+      {
+        path: "familias/registrar-familia",
+        component: RegistrarFamiliaComponent,
+      },
+      {
+        path: "familias/listar-familias/perfil/:id",
+        component: PerfilFamiliaComponent,
+      },
       { path: "registroTareas", component: RegistroTareasComponent },
-      { path: "usuarios/agregar-usuario/:id_familia",component: RegistrarUsuarioComponent },
-      { path: "usuarios/usuarios-familia/:id_familia", component: ListarUsuariosfamiliaComponent},      
-      { path: "usuarios/user/:id", component: EditarUsuariosComponent},      
-      { path: 'home', component: HomeComponent },
-      { path: 'tareas/registro-tareas', component: RegistroTareasComponent },
-      { path: 'usuarios', component: ListarUsuariosComponent },
-      { path: 'tareas/lista-tareas', component: ListarTareasComponent },
-      { path: 'tareas', component: ListarTodasTareasComponent },
-    ])
-
+      {
+        path: "usuarios/agregar-usuario/:id_familia",
+        component: RegistrarUsuarioComponent,
+      },
+      {
+        path: "usuarios/usuarios-familia/:id_familia",
+        component: ListarUsuariosfamiliaComponent,
+      },
+      { path: "usuarios/user/:id", component: EditarUsuariosComponent },
+      { path: "home", component: HomeComponent },
+      { path: "tareas/registro-tareas", component: RegistroTareasComponent },
+      { path: "usuarios", component: ListarUsuariosComponent },
+      { path: "tareas/lista-tareas", component: ListarTareasComponent },
+      { path: "tareas", component: ListarTodasTareasComponent },
+    ]),
   ],
-  providers: [
-      
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -10,15 +10,15 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: "./home.component.html",
 })
 export class HomeComponent implements OnInit {
-  private usertype: string;
-  private usuario: Usuario;
-  private loginForm: FormGroup;
-  private submitted: boolean = false;
+  public usertype: string;
+  public usuario: Usuario;
+  public loginForm: FormGroup;
+  public submitted: boolean = false;
 
   constructor(
-    private usuarioService: UsuarioService,
-    private router: Router,
-    private route: ActivatedRoute
+    public usuarioService: UsuarioService,
+    public router: Router,
+    public route: ActivatedRoute
   ) {}
 
   ngOnInit() {

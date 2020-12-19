@@ -18,20 +18,20 @@ export class RegistroTareasComponent implements OnInit {
 
   currentDate = new Date();
   public tareaForm: FormGroup;
-  private submitted: Boolean; 
+  public submitted: Boolean; 
   public tarea: Tareas = null;
-  private isSendingData: boolean = false;
-  private error: object = null;
-  private idFamiliaLocal: string = localStorage.getItem('id_familia');
+  public isSendingData: boolean = false;
+  public error: object = null;
+  public idFamiliaLocal: string = localStorage.getItem('id_familia');
   
-  private id: string;
+  public id: string;
 
-  private usuarios: UsuarioList[];
-  private users: UsuarioList[];
+  public usuarios: UsuarioList[];
+  public users: UsuarioList[];
 
-  constructor(private service: TareasService, private usuarioService: UsuarioService,
-    private router: Router,
-    private route: ActivatedRoute) {
+  constructor(public service: TareasService, public usuarioService: UsuarioService,
+    public router: Router,
+    public route: ActivatedRoute) {
   }
 
   ngOnInit() {

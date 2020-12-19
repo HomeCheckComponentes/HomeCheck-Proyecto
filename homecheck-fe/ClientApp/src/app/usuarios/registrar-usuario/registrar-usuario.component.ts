@@ -11,20 +11,20 @@ import { Usuario } from '../../models/usuario';
   styleUrls: ['./registrar-usuario.component.css']
 })
 export class RegistrarUsuarioComponent implements OnInit {
-  private usuarioForm: FormGroup;
-  private submitted: boolean = false;
-  private error: object = null;
-  private registerComplete: boolean = false;
-  private isSendingData: boolean = false;
-  private id_familia: string;
+  public usuarioForm: FormGroup;
+  public submitted: boolean = false;
+  public error: object = null;
+  public registerComplete: boolean = false;
+  public isSendingData: boolean = false;
+  public id_familia: string;
   public accion: string = "Creación usuario";
 
 
 
   constructor(
-    private serviceUsuario: UsuarioService,
-    private router: Router,
-    private route: ActivatedRoute) {
+    public serviceUsuario: UsuarioService,
+    public router: Router,
+    public route: ActivatedRoute) {
     this.id_familia = localStorage.getItem('id_familia');
   }
  

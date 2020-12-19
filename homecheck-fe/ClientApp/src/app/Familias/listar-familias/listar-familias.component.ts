@@ -14,13 +14,13 @@ import { Familia } from '../../models/familia';
   styleUrls: ['./listar-familias.component.css']
 })
 export class ListarFamiliasComponent implements OnInit {
-  private familias: FamiliaList[];
-  private cambioFamilia: Familia;
+  public familias: FamiliaList[];
+  public cambioFamilia: Familia;
   constructor(
-    private service: FamiliaService,
-    private serviceUsuario: UsuarioService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    public service: FamiliaService,
+    public serviceUsuario: UsuarioService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute) {
 
     }
 

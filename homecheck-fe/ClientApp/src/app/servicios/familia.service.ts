@@ -14,11 +14,11 @@ export class FamiliaService {
     formData: Familia;
     list: Familia[];
     listFamilias: Familia[];
-    private baseUrl: string;
+    public baseUrl: string;
 
     constructor(
       @Inject('BASE_URL') baseUrl: string,
-      private http: HttpClient) {
+      public http: HttpClient) {
       this.baseUrl = baseUrl;
      
     }

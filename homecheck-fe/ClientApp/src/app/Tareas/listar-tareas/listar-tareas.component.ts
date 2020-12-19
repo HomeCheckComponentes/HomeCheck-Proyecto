@@ -14,13 +14,13 @@ import { Session } from 'protractor';
 export class ListarTareasComponent implements OnInit {
 
   public selectedTarea: Tareas = null;
-  private isChecked: Boolean; 
-  private userType: string;
-  private idFamiliaLocal: string = localStorage.getItem('id_familia');
+  public isChecked: Boolean; 
+  public userType: string;
+  public idFamiliaLocal: string = localStorage.getItem('id_familia');
 
-  constructor(private service: TareasService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+  constructor(public service: TareasService,
+    public router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit() {
 
