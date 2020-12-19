@@ -54,7 +54,7 @@ namespace homecheck_be.Controllers
             }
         }
 
-        [HttpPut("{id:length(24)}")]
+        [HttpPut("{id}")]
         public IActionResult Update(string id, Tareas tarea)
         {
             var tareas = _tareaService.Get(id);
@@ -62,6 +62,7 @@ namespace homecheck_be.Controllers
             if (tareas == null)
             {
                 return NotFound();
+
             }
 
             _tareaService.Update(id, tarea);
@@ -69,7 +70,7 @@ namespace homecheck_be.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             var tareas = _tareaService.Get(id);

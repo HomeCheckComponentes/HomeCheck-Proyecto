@@ -49,9 +49,7 @@ export class UsuarioService {
 
 
   obtenerUsuariosFamilia(id_familia: string): Observable<UsuarioList[]> {
-    return this.http.get<UsuarioList[]>(
-      this.baseUrl + "/usuario/UsuariosFamilia/" + id_familia
-    );
+    return this.http.get<UsuarioList[]>(this.baseUrl + "/usuario/UsuariosFamilia/" + id_familia);
   }
 
   obtenerMimembrosFamilia(id_familia: string): Observable<UsuarioList[]> {

@@ -27,19 +27,19 @@
           <tbody>
             <tr *ngFor="let tarea of service.tareas">
               <td>{{tarea.descripcion}}</td>
-              <td>{{tarea.fechaAsignada}}</td>
-              <td>{{tarea.fechaLimite}}</td>
+              <td>{{tarea.fechaAsignada | date:'yyyy-MM-dd'}}</td>
+              <td>{{tarea.fechaLimite | date:'yyyy-MM-dd'}}</td>
               <td>{{tarea.persona}}</td>
-              <td>{{tarea.estado}}</td>
+              <td class="text-right">
+                <input type="checkbox" [checked]="tarea.estado == 1" (change)="changed(tarea,tarea.estado == 0 ? '1' : '0')" value="{{}}" />
+                <span >{{tarea.estado == 0 ? 'Incompleto' : 'Completo'}}</span>
+              </td>
               <td class="text-right">
 
-                <button class="btn btn-outline-danger btn-sm">
-                  <i class="icon-trash"></i>Eliminar
-                </button>
+                <button class="btn-outline-danger btn-sm" (click)="borrarTarea(tarea.id)">
+                  <i class="icon-trash"></i>Eliminar </button>
               </td>
-             <!-- <td class="text-right">
-                <mat-checkbox class="example-margin">Check me!</mat-checkbox>
-              </td>-->
+
             </tr>
           </tbody>
         </table>

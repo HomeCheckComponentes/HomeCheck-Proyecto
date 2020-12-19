@@ -41,8 +41,24 @@ export class TareasService {
 
 
   listarTareas(){
-    this.http.get(this.baseUrl + '/tareas/GetTareas')
+    this.http.get(this.baseUrl + '/tareas/get')
       .toPromise().then(res => this.tareas = res as Tareas[])
 
+  }
+
+  modificarTarea(tarea: Tareas, id: string): Observable<any> {
+    return this.http.put(this.baseUrl + '/tareas/Update/' + id, tarea).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  eliminarTarea(id: string) {
+    return this.http.delete(this.baseUrl + '/tareas/Delete/' + id).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
   }
 }
