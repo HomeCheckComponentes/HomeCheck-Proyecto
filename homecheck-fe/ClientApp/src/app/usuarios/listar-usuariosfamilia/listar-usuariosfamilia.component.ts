@@ -57,6 +57,13 @@ export class ListarUsuariosfamiliaComponent implements OnInit {
     this.router.navigate(['/usuarios/user/' + id]);
   }
 
+  irPerfil() {
+    this.router.navigate(['familias/listar-familias/perfil/' + sessionStorage.getItem('id_familia')]);
+  }
 
+  irRegistrarUsuario() {
+    this.router.navigate(['usuarios/agregar-familia/' + sessionStorage.getItem('id_familia')]);
+
+  }
 
 }

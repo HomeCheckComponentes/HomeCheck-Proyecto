@@ -1,16 +1,23 @@
 <app-nav-menu></app-nav-menu>
 
 <div class="col">
+  <div>
+    <div class="menu">
+      <a class="btn btn-familia" href="/tareas/registro-tareas">Registrar tarea</a>
+      <button (click)="irRegistrarUsuario()" class="btn btn-familia btn-sm">
+      Registrar usuario
+      </button>
+      <button (click)="irListarUsuarios()" class="btn btn-familia btn-sm">
+      Listar usuarios
+      </button>
+      <button (click)="irPerfil()" class="btn btn-familia btn-sm">
+        Ir al Perfil de la Familia
+      </button>
+    </div>
+  </div>
+
   <div class="container-fluid">
     <h1>Lista de tareas</h1>
-   
-
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-        <a [routerLink]="['/crear-categoria']" class="btn"> <button>Registrar tarea</button>  </a>
-      </div>
-    </div>
-    
 
     <div class="row">
       <div class="col">
@@ -31,13 +38,14 @@
               <td>{{tarea.fechaLimite | date:'yyyy-MM-dd'}}</td>
               <td>{{tarea.persona}}</td>
               <td class="text-right">
-                <input type="checkbox" [checked]="tarea.estado == 1"  (change)="changed(tarea, tarea.id)" />
-                <span >{{tarea.estado == 0 ? 'Incompleto' : 'Completo'}}</span>
+                <input type="checkbox" [checked]="tarea.estado == 1" (change)="changed(tarea, tarea.id)" />
+                <span>{{tarea.estado == 0 ? 'Incompleto' : 'Completo'}}</span>
               </td>
               <td class="text-right">
 
                 <button class="btn-outline-danger btn-sm" (click)="borrarTarea(tarea.id)">
-                  <i class="icon-trash"></i>Eliminar </button>
+                  <i class="icon-trash"></i>Eliminar
+                </button>
               </td>
 
             </tr>

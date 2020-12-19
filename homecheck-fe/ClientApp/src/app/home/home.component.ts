@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
         (response) => {
           sessionStorage.setItem('id_user', response['id'])
           sessionStorage.setItem('id_familia', response['idFamilia'])
+          localStorage.setItem('id_familia', response['idFamilia'])
           sessionStorage.setItem('username', response['username'])
           sessionStorage.setItem('usertype', response['usertype'])
           sessionStorage.setItem('member', response['member'])

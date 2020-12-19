@@ -1,5 +1,16 @@
 <app-nav-menu></app-nav-menu>
 <div class="col">
+  <div>
+    <div class="menu">
+      <button (click)="agregarUsuario()" class="btn btn-familia btn-sm">
+        Registrar usuario
+      </button>
+      <a class="btn btn-familia" href="/tareas/registro-tareas">Registrar tarea</a>
+      <a class="btn btn-familia" href="/tareas/lista-tareas">Listar tareas</a>
+    </div>
+  </div>
+  <br />
+  <hr />
   <h2>Perfil de familia</h2>
   <h3>Familia:</h3>
   <p>{{familiaActual.name}}</p>
@@ -9,15 +20,13 @@
 
   <h2>Lista de usuarios de familia</h2>
   <div>
-    <button (click)="agregarUsuario()" class="btn btn-familia btn-sm">
-      Registrar usuario
-    </button>
+    
   </div>
   <table class="table table-striped table-responsive-sm">
 
     <thead>
       <tr>
-        
+
         <th>Nombre de usuario</th>
         <th>Correo</th>
         <th>Miembro de familia</th>

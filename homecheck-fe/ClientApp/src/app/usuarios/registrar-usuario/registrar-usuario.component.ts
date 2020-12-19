@@ -92,4 +92,16 @@ export class RegistrarUsuarioComponent implements OnInit {
 
     this.registrarUsuario();
   }
+
+
+  irPerfil() {
+    this.router.navigate(['familias/listar-familias/perfil/' + sessionStorage.getItem('id_familia')]);
+  }
+
+ 
+
+  irListarUsuarios() {
+    this.router.navigate(['usuarios/usuarios-familia/' + sessionStorage.getItem('id_familia')]);
+
+  }
 }

@@ -66,6 +66,7 @@ enableProdMode();
       { path: 'tareas/registro-tareas', component: RegistroTareasComponent },
       { path: 'usuarios', component: ListarUsuariosComponent },
       { path: 'tareas/lista-tareas', component: ListarTareasComponent },
+      { path: 'tareas', component: ListarTodasTareasComponent },
     ])
 
   ],

@@ -1,5 +1,20 @@
 <app-nav-menu></app-nav-menu>
 
+<div>
+  <div class="menu">
+    <button (click)="irListarUsuarios()" class="btn btn-familia btn-sm">
+      Listar usuarios
+    </button>
+    <a class="btn btn-familia" href="/tareas/registro-tareas">Registrar tarea</a>
+    <a class="btn btn-familia" href="/tareas/lista-tareas">Listar tareas</a>
+    <button (click)="irPerfil()" class="btn btn-familia btn-sm">
+      Ir al Perfil de la Familia
+    </button>
+  </div>
+</div>
+<br>
+<hr />
+
 <h1 class="text-center">Editar usuario</h1>
 <form class="text-left form-group border border-light p-5">
 
@@ -15,7 +30,7 @@
       <input id="member" name="member" class="form-control"
              [(ngModel)]="usuario.member" minlength="3" #member="ngModel" type="text" required>
 
-      
+
     </div>
 
     <div class="col-lg-6">
@@ -29,7 +44,7 @@
              [(ngModel)]="usuario.password" minlength="3" #password="ngModel" type="password" required>
     </div>
   </div>
-  
+
   <div class="container-fluid">
 
     <div class="row">
@@ -41,7 +56,7 @@
           <button class="btn btn-usuario btn-block" (click)="cancelarEdicion()">Cancelar</button>
         </div>
       </div>
-      
+
     </div>
   </div>
 

@@ -23,7 +23,7 @@ export class ListarTareasComponent implements OnInit {
 
   obtenerTodo() {
 
-    return this.service.obtenerUsuariosFamilia(this.idFamiliaLocal);
+    return this.service.obtenerTareasFamilia(this.idFamiliaLocal);
    
   }
 

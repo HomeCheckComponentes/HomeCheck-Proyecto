@@ -56,7 +56,7 @@ button {
   display: inline;
 }
 
-  .menu a {
+  .menu a, .menu button {
     display: inline;
     margin: 0 5%;
   }

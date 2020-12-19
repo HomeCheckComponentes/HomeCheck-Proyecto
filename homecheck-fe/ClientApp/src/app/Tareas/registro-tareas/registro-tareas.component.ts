@@ -5,6 +5,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TareasService } from '../../servicios/tareas.service';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { Usuario } from '../../models/usuario';
+import { UsuarioList } from '../../models/usuario-list';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-registro-tareas',
@@ -23,27 +26,37 @@ export class RegistroTareasComponent implements OnInit {
   
   private id: string;
 
-  private usuarios: Usuario[]; 
+  private usuarios: UsuarioList[];
+  private users: UsuarioList[];
 
-  constructor(private service: TareasService, private usuarioService: UsuarioService) {
+  constructor(private service: TareasService, private usuarioService: UsuarioService,
+    private router: Router,
+    private route: ActivatedRoute) {
     
   }
 
   ngOnInit() {
+
+    this.obtenerUsuarios(this.idFamiliaLocal);
+
     this.tareaForm = new FormGroup({
       descripcion: new FormControl('', Validators.required),
       fechaAsignada: new FormControl('', Validators.required),
       fechaLimite: new FormControl('', Validators.required),
-      persona: new FormControl('', Validators.required)
+      persona: new FormControl()
     });
 
-    this.obtenerUsuarios(this.idFamiliaLocal);
+    
   }
 
   obtenerUsuarios(idFamilia: string) {
-    this.usuarioService.obtenerUsuariosFamilia(idFamilia);
-    console.log(idFamilia);
-    console.log(this.usuarioService.list);
+    this.usuarioService.obtenerUsuariosFamilia(idFamilia)
+      .subscribe(data => {
+        this.usuarios = data
+        console.log(this.usuarios)
+
+      });
+
 
   }
  
@@ -97,5 +110,18 @@ export class RegistroTareasComponent implements OnInit {
     this.registrarTarea();
   }
 
+  irPerfil() {
+    this.router.navigate(['familias/listar-familias/perfil/' + sessionStorage.getItem('id_familia')]);
+  }
+
+  irRegistrarUsuario() {
+    this.router.navigate(['usuarios/agregar-familia/' + sessionStorage.getItem('id_familia')]);
+
+  }
+
+  irListarUsuarios() {
+    this.router.navigate(['usuarios/usuarios-familia/' + sessionStorage.getItem('id_familia')]);
+
+  }
 
 }
