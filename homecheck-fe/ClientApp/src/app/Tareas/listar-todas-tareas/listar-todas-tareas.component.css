@@ -1,6 +1,5 @@
 .container-fluid {
   padding-bottom: 2.5rem;
-  margin: 0% 3% !important;
   width: 100%;
   min-height: calc(100vh - 70px);
   top: 0;
@@ -9,16 +8,3 @@
   margin: 0;
   margin-bottom: 80px;
 }
-
-
-.col {
-  margin: 2% 0%;
-}
-
-
-.table {
-  margin: 6% 2% !important;
-  width: 90%;
-}
-
- 

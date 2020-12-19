@@ -39,7 +39,9 @@ namespace homecheck_be.Controllers
             return usuario;
         }
 
-       
+
+
+
         [HttpGet("{id}")]
         public ActionResult<List<Usuario>> UsuariosFamilia(string id)
         {
@@ -82,6 +84,15 @@ namespace homecheck_be.Controllers
             return adminFamilia;
         }
 
+        [HttpPost]
+        public ActionResult<Usuario> LoginUsuario(Usuario usuario)
+        {
+            var user = _usuarioService.GetByEmail(usuario.Email, usuario.Password);
+            if (usuario == null)
+                return NotFound(new { message = "Usuario o Contraseña incorrecta." });
+            return Ok(user);
+        }
+
 
         [HttpPost]
         public ActionResult<Usuario> Nuevo(Usuario usuario)
@@ -114,7 +125,7 @@ namespace homecheck_be.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public IActionResult Usuario(string id)
         {
             var usuario = _usuarioService.Get(id);
 
@@ -127,6 +138,18 @@ namespace homecheck_be.Controllers
 
             return NoContent();
         }
+
+
+
+
+        [HttpDelete("{id}")]
+        public IActionResult UsersFamilia(string id)
+        {
+            _usuarioService.RemoveAllUserFamily(id);
+
+            return NoContent();
+        }
+
 
     }
 }

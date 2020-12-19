@@ -20,16 +20,19 @@ namespace homecheck_be.Services
             _usuarios = database.GetCollection<Usuario>("Usuarios");
         }
 
+        public Usuario GetByEmail(string email, string password) =>
+            _usuarios.Find(usuario => usuario.Email.Equals(email) && usuario.Password.Equals(password)).FirstOrDefault();
+
         public List<Usuario> Get() =>
-           _usuarios.Find(usuario => true).ToList();
+           _usuarios.Find(usuario => usuario.Usertype != "1").ToList();
 
 
         public List<Usuario> GetUsuariosFamilia(string id) =>
             _usuarios.Find(usuario => usuario.IdFamilia.Equals(id)).ToList();
 
-        
+
         public List<Usuario> GetMiembrosFamilia(string id) =>
-         _usuarios.Find(usuario => usuario.IdFamilia.Equals(id) && usuario.Member.Equals("Integrante")).ToList();
+         _usuarios.Find(usuario => usuario.IdFamilia.Equals(id) && usuario.Member.Equals("3")).ToList();
 
 
         public Usuario Get(string id) =>
@@ -37,7 +40,7 @@ namespace homecheck_be.Services
 
 
         public Usuario GetAdminFamilia(string id) =>
-          _usuarios.Find<Usuario>(usuario => usuario.IdFamilia.Equals(id) && usuario.Usertype.Equals("AdminFamilia"))
+          _usuarios.Find<Usuario>(usuario => usuario.IdFamilia.Equals(id) && usuario.Usertype.Equals("2"))
             .FirstOrDefault();
 
         public Usuario Create(Usuario usuario)
@@ -54,5 +57,8 @@ namespace homecheck_be.Services
 
         public void Remove(string id) =>
             _usuarios.DeleteOne(usuario => usuario.Id == id);
+
+        public void RemoveAllUserFamily(string id) =>
+            _usuarios.DeleteMany(usuario => usuario.IdFamilia == id);
     }
 }

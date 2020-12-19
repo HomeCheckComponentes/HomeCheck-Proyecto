@@ -33,3 +33,18 @@ nav {
   background-color: #cf7500 !important;
   border: #cf7500 !important;
 }
+
+.cerrar {
+  background-color: #f0a500;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+  .cerrar:hover {
+    color: #f0a500;
+    background-color: #f4f4f4;
+  }
+
+

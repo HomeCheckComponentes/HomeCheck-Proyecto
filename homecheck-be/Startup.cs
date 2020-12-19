@@ -70,7 +70,6 @@ namespace homecheck_be
 
             app.UseRouting();
 
-         
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
@@ -78,7 +77,7 @@ namespace homecheck_be
             });
 
 
-             
+
         }
     }
 }

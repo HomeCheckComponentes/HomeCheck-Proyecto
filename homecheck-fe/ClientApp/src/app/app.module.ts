@@ -20,9 +20,10 @@ import { ListarFamiliasComponent } from "./Familias/listar-familias/listar-famil
 import { RegistrarUsuarioComponent } from "./usuarios/registrar-usuario/registrar-usuario.component";
 import { ListarUsuariosfamiliaComponent } from "./usuarios/listar-usuariosfamilia/listar-usuariosfamilia.component";
 import { ModificarFamiliaComponent } from "./Familias/modificar-familia/modificar-familia.component";
-import { ModificarUsuarioComponent } from "./usuarios/modificar-usuario/modificar-usuario.component";
 import { PerfilFamiliaComponent } from "./Familias/perfil-familia/perfil-familia.component";
 import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
+import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
+import { ListarTodasTareasComponent } from './Tareas/listar-todas-tareas/listar-todas-tareas.component';
 
 enableProdMode();
 
@@ -40,9 +41,10 @@ enableProdMode();
     RegistrarUsuarioComponent,
     ListarUsuariosfamiliaComponent,
     ModificarFamiliaComponent,
-    ModificarUsuarioComponent,
     PerfilFamiliaComponent,
     ListarUsuariosComponent,
+    EditarUsuariosComponent,
+    ListarTodasTareasComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
@@ -57,9 +59,12 @@ enableProdMode();
       { path: "registroTareas", component: RegistroTareasComponent },
       { path: "usuarios/agregar-usuario/:id_familia",component: RegistrarUsuarioComponent },
       { path: "usuarios/usuarios-familia/:id_familia", component: ListarUsuariosfamiliaComponent},      
+      { path: "usuarios/user/:id", component: EditarUsuariosComponent},      
       { path: 'home', component: HomeComponent },
       { path: 'tareas/registro-tareas', component: RegistroTareasComponent },
       { path: 'usuarios', component: ListarUsuariosComponent },
+      { path: 'tareas/lista-tareas', component: ListarTareasComponent },
+      { path: 'tareas', component: ListarTodasTareasComponent },
     ])
 
   ],

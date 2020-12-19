@@ -1,0 +1,69 @@
+<app-nav-menu></app-nav-menu>
+
+<div>
+  <div class="menu">
+    <button (click)="irListarUsuarios()" class="btn btn-familia ">
+      Listar usuarios
+    </button>
+    <button class="btn btn-familia btn-sm" [routerLink]="['/tareas/registro-tareas']">Registrar tarea</button>
+    <button class="btn btn-familia btn-sm" [routerLink]="['/tareas/lista-tareas']">Listar tareas</button>
+    <button (click)="irPerfil()" class="btn btn-familia btn-sm">
+      Ir al Perfil de la Familia
+    </button>
+  </div>
+</div>
+<br />
+<hr />
+<br />
+
+<h1 class="text-center">Editar usuario</h1>
+<form class="text-left form-group border border-light p-5">
+
+
+  <div class="form-row mb-6">
+    <div class="col">
+      <label for="username">Nombre de usuaruo</label>
+      <input id="username" name="username" class="form-control"
+             [(ngModel)]="usuario.username" minlength="3" #username="ngModel" type="text" required>
+
+
+      <label for="member">Miembro</label>
+      <input id="member" name="member" class="form-control"
+             [(ngModel)]="usuario.member" minlength="3" #member="ngModel" type="text" required>
+
+
+    </div>
+
+    <div class="col-lg-6">
+      <label>Correo electrónico</label>
+      <input id="email" name="email" class="form-control"
+             [(ngModel)]="usuario.email" minlength="3" #email="ngModel" type="email" required>
+
+
+      <label for="nombreLegal">Contraseña</label>
+      <input id="password" name="password" class="form-control"
+             [(ngModel)]="usuario.password" minlength="3" #password="ngModel" type="password" required>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col text-center">
+        <div class="text-center">
+          <button class="btn btn-usuario btn-block" (click)="editarUsuario()">Guardar cambios</button>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-usuario btn-block" (click)="cancelarEdicion()">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+</form>
+
+
+
+<app-nav-footer></app-nav-footer>

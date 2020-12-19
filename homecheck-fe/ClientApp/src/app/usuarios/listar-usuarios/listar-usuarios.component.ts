@@ -6,7 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Familia } from '../../models/familia';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { UsuarioList } from '../../models/usuario-list';
-import { Usuario } from '../../models/usuario';import { strict } from 'assert';
+import { Usuario } from '../../models/usuario';
+import { strict } from 'assert';
 ;
 
 @Component({

@@ -44,10 +44,28 @@ export class ListarUsuariosfamiliaComponent implements OnInit {
     this.router.navigate(['/usuarios/agregar-usuario/' + this.familiaId]);
   };
 
-  eliminar(id: string) {
-    this.service.eliminarFamilia(id).subscribe(res => {
-      this.service.obtenerTodasFamilias();
+  eliminar(usuario: Usuario) {
+    this.usuarioService.deleteUsuario(usuario.id).subscribe(res => {
+      this.obtenerUsuarios();
     });
   }
 
+
+
+  editarUsuario(id: string) {
+    localStorage.setItem('id_user', id);
+    this.router.navigate(['/usuarios/user/' + id]);
+  }
+
+  irPerfil() {
+    this.router.navigate(['/familias/listar-familias/perfil/' + sessionStorage.getItem('id_familia')]);
+  }
+
+  irRegistrarUsuario() {
+    this.router.navigate(['/usuarios/agregar-usuario/' + sessionStorage.getItem('id_familia')]);
+  }
+
+  irListarUsuarios() {
+    this.router.navigate(['/usuarios/usuarios-familia/' + sessionStorage.getItem('id_familia')]);
+  }
 }

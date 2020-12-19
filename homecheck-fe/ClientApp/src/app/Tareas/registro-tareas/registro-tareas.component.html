@@ -1,30 +1,65 @@
 <app-nav-menu></app-nav-menu>
 <body>
+
+  <div>
+    <div class="menu">
+      <button class="btn btn-familia btn-sm" [routerLink]="['/tareas/lista-tareas']">Listar tareas</button>
+      <button (click)="irRegistrarUsuario()" class="btn btn-familia btn-sm">
+        Registrar usuario
+      </button>
+      <button (click)="irListarUsuarios()" class="btn btn-familia">
+        Listar usuarios
+      </button>
+      <button (click)="irPerfil()" class="btn btn-familia">
+        Ir al Perfil de la Familia
+      </button>
+    </div>
+  </div>
+  <br />
+  <hr />
+  <br />
   <div class="container container-fluid">
-    <a class="btn btn-familia" href="/familias/listar-familias">Volver a la lista de familias</a>
-    <br />
-    <br />
-    <h3 class="display-4 text-center">Agregar familia</h3>
+
+    <h3 class="display-4 text-center">Agregar tarea</h3>
     <hr>
-    <form class="form-tarea" [formGroup]="ftareaForm" (ngSubmit)="onSubmit()">
+    <form class="form-tarea" [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
       <div class="row">
 
         <div class="form-group col-lg-6 col-md-6">
           <label>Descripción</label>
           <input type="text" class="form-control" name="descripcion" id="descripcion"
-                 formControlName="descripcion" placeholder="bonilla">
+                 formControlName="descripcion">
+
+
         </div>
+
         <div class="form-group col-lg-6 col-md-6">
-          <label>Fecha de asginación</label>
-          <input type="text" class="form-control" name="fecha" id="fecha"
-                 formControlName="fecha" placeholder="{{currentDate | date:'yyyy-MM-dd'}}">
+
+          <label>Miembro de familia</label>
+          <select formControlName="persona" class="form-control">
+            <option *ngFor="let usuario of usuarios" [ngValue]="usuario.username">{{usuario.username}}</option>
+          </select>
         </div>
       </div>
 
+      <div class="row">
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Fecha de asginación</label>
+          <input type="date" class="form-control" name="fechaAsignada" id="fechaAsignada"
+                 formControlName="fechaAsignada" value="{{currentDate | date:'yyyy-MM-dd'}}">
 
+        </div>
+
+        <div class="form-group col-lg-6 col-md-6">
+          <label>Fecha limite</label>
+          <input type="date" class="form-control" name="fechaLimite" id="fechaLimite"
+                 formControlName="fechaLimite">
+        </div>
+
+      </div>
       <div class="form-group">
-        <button [disabled]="!familiaForm.valid" type="submit"
-                class="btn btn-block btn-primary btn-familia" data-toggle="modal"
+        <button [disabled]="!tareaForm.valid" type="submit"
+                class="btn btn-block  btn-familia" data-toggle="modal"
                 data-target="#Modal">
           Registrar
         </button>

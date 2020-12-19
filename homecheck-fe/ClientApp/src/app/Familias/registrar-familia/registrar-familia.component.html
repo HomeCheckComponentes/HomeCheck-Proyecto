@@ -1,11 +1,18 @@
 <app-nav-menu></app-nav-menu>
 <body>
   <div class="container container-fluid">
-    <a class="btn btn-familia" href="/familias/listar-familias">Volver a la lista de familias</a>
+    <div>
+      <div class="menu">
+        <button class="btn btn-familia btn-sm" [routerLink]="['/familias/registrar-familia']">Listar familia</button>
+        <button class="btn btn-familia btn-sm" [routerLink]="['/usuarios']">Listar usuarios']</button>
+        <button class="btn btn-familia btn-sm" [routerLink]="['/tareas']">Listar tareas</button>
+      </div>
+    </div>
     <br />
+    <hr />
     <br />
     <h3 class="display-4 text-center">Registrar familia</h3>
-    <hr>
+    <br>
     <form class="form-familia" [formGroup]="familiaForm" (ngSubmit)="onSubmit()">
       <div class="row">
 
