@@ -7,8 +7,8 @@
         <button (click)="irListarUsuarios()" class="btn btn-familia btn-sm">
           Listar usuarios
         </button>
-        <a class="btn btn-familia" href="/tareas/registro-tareas">Registrar tarea</a>
-        <a class="btn btn-familia" href="/tareas/lista-tareas">Listar tareas</a>
+        <button [routerLink]="['/tareas/registro-tareas']" class="btn btn-familia btn-sm">Registrar tarea</button>
+        <button class="btn btn-familia" [routerLink]="['/tareas/lista-tareas']">Listar tareas</button>
         <button (click)="irPerfil()" class="btn btn-familia btn-sm">
           Ir al Perfil de la Familia
         </button>

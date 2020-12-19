@@ -1,24 +1,18 @@
 
 
 
-.col {
-  margin: 2% 6%;
-}
-
 .table {
   margin: 6% 0;
   width: 86%;
 }
 
 
-.row {
+.col {
   padding-bottom: 2.5rem;
   width: 100%;
   top: 0;
   padding: 0;
-  left: 0;
   margin: 0;
-
+  margin-left: 4px;
   min-height: calc(100vh - 70px);
- 
 }
