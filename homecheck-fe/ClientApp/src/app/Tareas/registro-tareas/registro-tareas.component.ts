@@ -3,6 +3,8 @@ import { formatDate } from '@angular/common';
 import { Tareas } from '../../models/tareas.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TareasService } from '../../servicios/tareas.service';
+import { UsuarioService } from '../../servicios/usuario.service';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-registro-tareas',
@@ -17,8 +19,13 @@ export class RegistroTareasComponent implements OnInit {
   public tarea: Tareas = null;
   private isSendingData: boolean = false;
   private error: object = null;
+  private idFamilia: string = localStorage.getItem('id_familia');
+  
+  private id: string;
 
-  constructor(private service: TareasService) {
+  private usuarios: Usuario[]; 
+
+  constructor(private service: TareasService, private usuarioService: UsuarioService) {
     
   }
 
@@ -28,9 +35,15 @@ export class RegistroTareasComponent implements OnInit {
       fechaAsignada: new FormControl('', Validators.required),
       fechaLimite: new FormControl('', Validators.required)
     });
-    
+
+    this.obtenerUsuarios(this.idFamilia);
   }
 
+  obtenerUsuarios(idFamilia: string) {
+    this.usuarioService.obtenerUsuariosFamilia(idFamilia); 
+
+  }
+ 
   get f() {
     return this.tareaForm.controls;
   }
@@ -41,7 +54,7 @@ export class RegistroTareasComponent implements OnInit {
     nuevatarea.fechaAsignada = this.tareaForm.controls['fechaAsignada'].value;
     nuevatarea.fechaLimite = this.tareaForm.controls['fechaLimite'].value;
     nuevatarea.estado = "incompleto";
-    nuevatarea.persona = '1';
+    nuevatarea.persona = this.tareaForm.controls['persona'].value;
     return nuevatarea;
   }
 

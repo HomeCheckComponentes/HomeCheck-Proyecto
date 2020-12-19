@@ -11,6 +11,7 @@ import { Observable } from "rxjs";
 export class UsuarioService {
   formData: UsuarioList;
   list: UsuarioList[];
+  private idFamiliaUsuario: String; 
   listUsuarios: Usuario[];
   private baseUrl: string;
   private idFamilia = localStorage.getItem("id_familia");
@@ -35,6 +36,8 @@ export class UsuarioService {
       .get(this.baseUrl + "/usuario/Get")
       .toPromise()
       .then((res) => (this.list = res as UsuarioList[]));
+
+    
   }
 
 

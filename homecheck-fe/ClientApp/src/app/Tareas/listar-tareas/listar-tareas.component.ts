@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tareas } from '../../models/tareas.model';
 import { TareasService } from '../../servicios/tareas.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { TareasService } from '../../servicios/tareas.service';
   styleUrls: ['./listar-tareas.component.css']
 })
 export class ListarTareasComponent implements OnInit {
+
+  public selectedTarea: Tareas = null; 
 
   constructor(private service: TareasService) { }
 
@@ -18,6 +21,10 @@ export class ListarTareasComponent implements OnInit {
   obtenerTodo() {
 
     return this.service.listarTareas(); 
+  }
+
+  editar(tarea: Tareas) {
+
   }
 
 }
