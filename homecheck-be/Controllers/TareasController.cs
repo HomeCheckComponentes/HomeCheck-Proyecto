@@ -21,11 +21,11 @@ namespace homecheck_be.Controllers
             _tareaService = tareaService;
         }
 
-        [HttpGet]
+        [HttpGet(Name ="GetTareas")]
         public ActionResult<List<Tareas>> Get() =>
             _tareaService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetTareas")]
+        [HttpGet("{id:length(24)}", Name = "GetTarea")]
         public ActionResult<Tareas> Get(string id)
         {
             var tarea = _tareaService.Get(id); 
@@ -41,12 +41,20 @@ namespace homecheck_be.Controllers
         [HttpPost]
         public ActionResult<Tareas> Create(Tareas tareas)
         {
-            _tareaService.Create(tareas);
+           
 
-            return CreatedAtRoute("GetFamilia", new { id = tareas.Id.ToString() }, tareas);
+            try
+            {
+                return _tareaService.Create(tareas); 
+
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, e.Message); 
+            }
         }
 
-        [HttpPut("{id:length(24)}")]
+        [HttpPut("{id}")]
         public IActionResult Update(string id, Tareas tarea)
         {
             var tareas = _tareaService.Get(id);
@@ -54,6 +62,7 @@ namespace homecheck_be.Controllers
             if (tareas == null)
             {
                 return NotFound();
+
             }
 
             _tareaService.Update(id, tarea);
@@ -61,7 +70,7 @@ namespace homecheck_be.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             var tareas = _tareaService.Get(id);

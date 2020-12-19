@@ -15,6 +15,7 @@ export class UsuarioService {
   formData: UsuarioList;
   list: UsuarioList[];
   private usuario: Usuario;
+  private idFamiliaUsuario: String; 
   listUsuarios: Usuario[];
   private baseUrl: string;
   private idFamilia = localStorage.getItem("id_familia");
@@ -40,6 +41,8 @@ export class UsuarioService {
       .get(this.baseUrl + "/usuario/Get")
       .toPromise()
       .then((res) => (this.list = res as UsuarioList[]));
+
+    
   }
 
   obtenerUsuario(formData: Usuario) {
@@ -60,9 +63,7 @@ export class UsuarioService {
 
 
   obtenerUsuariosFamilia(id_familia: string): Observable<UsuarioList[]> {
-    return this.http.get<UsuarioList[]>(
-      this.baseUrl + "/usuario/UsuariosFamilia/" + id_familia
-    );
+    return this.http.get<UsuarioList[]>(this.baseUrl + "/usuario/UsuariosFamilia/" + id_familia);
   }
 
   obtenerMimembrosFamilia(id_familia: string): Observable<UsuarioList[]> {
