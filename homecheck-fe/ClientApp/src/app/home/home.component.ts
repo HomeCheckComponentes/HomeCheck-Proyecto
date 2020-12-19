@@ -65,6 +65,10 @@ export class HomeComponent implements OnInit {
   
   }
 
+  cerrarSesion() {
+    console.log("Cesión cerrada.");
+    sessionStorage.clear();
+  }
 
   validarTipoUsuario(usertype: string) {
 
