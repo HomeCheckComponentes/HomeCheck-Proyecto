@@ -4,6 +4,7 @@ import { FamiliaService } from '../../servicios/familia.service';
 import { Familia } from '../../models/familia';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { UsuarioList } from '../../models/usuario-list';
+import { Usuario } from '../../models/usuario';
 import { Router } from '@angular/router';
 
 @Component({
@@ -46,5 +47,19 @@ export class PerfilFamiliaComponent implements OnInit {
   agregarUsuario() {
     this.router.navigate(['/usuarios/agregar-usuario/' + this.familiaId]);
   };
-  
+
+
+  eliminar(usuario: Usuario) {
+    this.usuariosService.deleteUsuario(usuario.id).subscribe(res => {
+      this.llenarUsuarioFamilia();
+    });
+  }
+
+
+
+  editarUsuario(id: string) {
+    localStorage.setItem('id_user', id);
+    this.router.navigate(['/usuarios/user/' + id]);
+  }
+
 }

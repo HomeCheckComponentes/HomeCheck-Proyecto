@@ -28,10 +28,10 @@ export class UsuarioService {
     return this.http.post(this.baseUrl + "/usuario/Nuevo", formData);
   }
 
-  putUsuario(id_user, id_familia: string, usuario: Usuario) {
+  putUsuario(id_user: string, usuario: Usuario) {
     return this.http.put(
-      this.baseUrl + "/usuario/Update" + id_user,
-      this.formData
+      this.baseUrl + "/usuario/Update/" + id_user,
+      usuario
     );
   }
 
@@ -44,6 +44,12 @@ export class UsuarioService {
 
   obtenerUsuario(formData: Usuario) {
     return this.http.post(this.baseUrl + "/usuario/LoginUsuario", formData);
+
+  }
+
+
+  getUsuario(id: string) {
+    return this.http.get(this.baseUrl + "/usuario/Get/"+ id);
 
   }
 

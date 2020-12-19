@@ -46,6 +46,8 @@ export class ListarFamiliasComponent implements OnInit {
    
   }
 
+
+
   irPerfil(id: string) {
     localStorage.setItem('id_familia', id);
     this.router.navigate(['familias/listar-familias/', 'perfil', id]);
