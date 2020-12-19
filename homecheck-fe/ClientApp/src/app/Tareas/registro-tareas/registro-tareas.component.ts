@@ -18,11 +18,11 @@ export class RegistroTareasComponent implements OnInit {
 
   currentDate = new Date();
   public tareaForm: FormGroup;
-  private submitted: Boolean; 
+  public submitted: Boolean; 
   public tarea: Tareas = null;
-  private isSendingData: boolean = false;
-  private error: object = null;
-  private idFamiliaLocal: string = localStorage.getItem('id_familia');
+  public isSendingData: boolean = false;
+  public error: object = null;
+  public idFamiliaLocal: string = localStorage.getItem('id_familia');
   
   private id: string;
 
