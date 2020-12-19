@@ -1,14 +1,24 @@
 <app-nav-menu></app-nav-menu>
 <div class="col">
-  <div>
+  <div *ngIf="userType=='2'">
     <div class="menu">
       <button (click)="agregarUsuario()" class="btn btn-familia">
         Registrar usuario
       </button>
-       <button [routerLink]="['/tareas/registro-tareas']" class="btn btn-familia btn-sm">Registrar tarea</button> 
-       <button [routerLink]="['/tareas/lista-tareas']" class="btn btn-familia btn-sm">Listar tareas</button>
-</div>
+      <button [routerLink]="['/tareas/registro-tareas']" class="btn btn-familia btn-sm">Registrar tarea</button>
+      <button [routerLink]="['/tareas/lista-tareas']" class="btn btn-familia btn-sm">Listar tareas</button>
+    </div>
   </div>
+  <div *ngIf="userType=='1'">
+    <div class="menu">
+      <button class="btn btn-familia btn-sm" [routerLink]="['/familias/registrar-familia']">Registrar familia</button>
+      <button class="btn btn-familia btn-sm" [routerLink]="['/familias/listar-familias']">Listar familias</button>
+      <button class="btn btn-familia btn-sm" [routerLink]="['/usuarios']">Listar usuarios</button>
+      <button class="btn btn-familia btn-sm" [routerLink]="['/tareas']">Listar tareas</button>
+
+    </div>
+  </div>
+
   <br />
   <hr />
   <br />
