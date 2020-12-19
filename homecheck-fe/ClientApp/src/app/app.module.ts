@@ -23,6 +23,7 @@ import { ModificarFamiliaComponent } from "./Familias/modificar-familia/modifica
 import { ModificarUsuarioComponent } from "./usuarios/modificar-usuario/modificar-usuario.component";
 import { PerfilFamiliaComponent } from "./Familias/perfil-familia/perfil-familia.component";
 import { ListarUsuariosComponent } from './usuarios/listar-usuarios/listar-usuarios.component';
+import { ListarTodasTareasComponent } from './Tareas/listar-todas-tareas/listar-todas-tareas.component';
 
 enableProdMode();
 
@@ -43,6 +44,7 @@ enableProdMode();
     ModificarUsuarioComponent,
     PerfilFamiliaComponent,
     ListarUsuariosComponent,
+    ListarTodasTareasComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),

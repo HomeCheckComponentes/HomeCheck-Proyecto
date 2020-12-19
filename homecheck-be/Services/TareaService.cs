@@ -42,5 +42,9 @@ namespace homecheck_be.Services
 
         public void Remove(string id) =>
             _tareas.DeleteOne(tarea => tarea.Id == id);
+
+
+        public List<Tareas> GetTareasFamilia(string id) =>
+            _tareas.Find(tarea => tarea.Id_familia.Equals(id)).ToList();
     }
 }

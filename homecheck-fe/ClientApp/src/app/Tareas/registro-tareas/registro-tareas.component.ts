@@ -19,7 +19,7 @@ export class RegistroTareasComponent implements OnInit {
   public tarea: Tareas = null;
   private isSendingData: boolean = false;
   private error: object = null;
-  private idFamilia: string = localStorage.getItem('id_familia');
+  private idFamiliaLocal: string = localStorage.getItem('id_familia');
   
   private id: string;
 
@@ -37,7 +37,7 @@ export class RegistroTareasComponent implements OnInit {
       persona: new FormControl('', Validators.required)
     });
 
-    this.obtenerUsuarios(this.idFamilia);
+    this.obtenerUsuarios(this.idFamiliaLocal);
   }
 
   obtenerUsuarios(idFamilia: string) {
@@ -57,7 +57,8 @@ export class RegistroTareasComponent implements OnInit {
     nuevatarea.fechaAsignada = this.tareaForm.controls['fechaAsignada'].value;
     nuevatarea.fechaLimite = this.tareaForm.controls['fechaLimite'].value;
     nuevatarea.estado = "0";
-    nuevatarea.persona =  this.tareaForm.controls['persona'].value;
+    nuevatarea.persona = this.tareaForm.controls['persona'].value;
+    nuevatarea.id_familia = this.idFamiliaLocal;
     return nuevatarea;
   }
 
