@@ -22,6 +22,7 @@ export class NavMenuComponent {
   cerrarSesion() {
     console.log("Cesión cerrada.");
     sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(["/home"]);
   }
 }
