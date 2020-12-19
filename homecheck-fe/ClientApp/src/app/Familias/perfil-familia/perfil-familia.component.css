@@ -1,6 +1,21 @@
-.btn-familia {
-  background-color: #cf7500;
-  border-color: #cf7500;
-  color: #ffff;
-  cursor:pointer;
+
+
+
+.col {
+  margin: 2% 6%;
+}
+
+.table {
+  margin: 6% 0;
+  width: 86%;
+}
+
+
+.row {
+  padding-bottom: 2.5rem;
+  width: 100%;
+  top: 0;
+  padding: 0;
+  left: 0;
+  margin: 0;
 }

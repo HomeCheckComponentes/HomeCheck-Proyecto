@@ -25,6 +25,14 @@ code {
   border-color: #1861ac;
 }
 
+
+.btn-familia {
+  background-color: #cf7500;
+  border-color: #cf7500;
+  color: #ffff;
+  cursor: pointer;
+}
+
 button {
   background-color: #cf7500;
   color: #f4f4f4;
@@ -38,6 +46,10 @@ button {
     background-color: #f4f4f4;
   }
 
+
+.table button {
+  margin: 0 6%;
+}
 
 
 

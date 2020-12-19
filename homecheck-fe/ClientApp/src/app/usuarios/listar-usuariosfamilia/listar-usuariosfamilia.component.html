@@ -16,13 +16,21 @@
           <th>Nombre de usuario</th>
           <th>Correo</th>
           <th>Miembro de familia</th>
-
+          <th>Opciones</th>
         </tr>
       </thead>
       <tr *ngFor="let usuario of usuarios">
         <td>{{usuario.username}}</td>
         <td>{{usuario.email}}</td>
         <td>{{usuario.member}}</td>
+        <td class="text-center">
+          <button (click)="editarUsuario(usuario.id)" class="btn btn-outline-info btn-sm">
+            <i class="far fa-trash-alt"></i>Editar
+          </button>
+          <button (click)="eliminar(usuario)" class="btn btn-outline-danger btn-sm">
+            <i class="far fa-trash-alt"></i>Eliminar
+          </button>
+        </td>
       </tr>
     </table>
   </div>
