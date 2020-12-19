@@ -55,4 +55,8 @@ export class EditarUsuariosComponent implements OnInit {
   cancelarEdicion() {
     this.router.navigate(['familias/listar-familias/perfil/' + this.usuario.idfamilia]);
   }
+
+  irListarUsuarios() {
+    this.router.navigate(['usuarios/usuarios-familia/' + sessionStorage.getItem('id_familia')]);
+  }
 }

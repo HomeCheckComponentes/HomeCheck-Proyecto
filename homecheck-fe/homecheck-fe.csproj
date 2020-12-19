@@ -20,9 +20,20 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\usuarios\modificar-usuario\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\usuarios\modificar-usuario\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\usuarios\modificar-usuario\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\usuarios\modificar-usuario\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\usuarios\modificar-usuario\modificar-usuario.component.css" />
+    <None Remove="ClientApp\src\app\usuarios\modificar-usuario\modificar-usuario.component.html" />
+    <None Remove="ClientApp\src\app\usuarios\modificar-usuario\modificar-usuario.component.spec.ts" />
+    <None Remove="ClientApp\src\app\usuarios\modificar-usuario\modificar-usuario.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

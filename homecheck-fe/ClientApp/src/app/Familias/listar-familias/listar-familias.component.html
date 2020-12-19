@@ -3,15 +3,16 @@
 <div class="row">
   <div class="col">
     <div>
-     
+
       <div class="menu">
         <a class="btn btn-familia" href="/familias/registrar-familia">Registrar familia</a>
         <a class="btn btn-familia" href="/usuarios">Listar usuarios</a>
         <a class="btn btn-familia" href="/tareas">Listar tareas</a>
       </div>
     </div>
-    <br>
+    <br />
     <hr />
+    <br />
     <h2>Lista de familias</h2>
     <table class="table table-striped table-responsive-sm">
 
@@ -26,19 +27,19 @@
         </tr>
       </thead>
       <tr *ngFor="let familia of familias ">
-      <td>{{familia.id}}</td>
-      <td>{{familia.name}}</td>
-      <td>{{familia.correo}}</td>
-      <td><a class="btn btn-familia" href="usuarios/usuarios-familia/{{familia.id}}"> Ver integrates de familia </a></td>
-      <td class="text-center">
-        <button (click)="irPerfil(familia.id)" class="btn btn-outline-info btn-sm">
-          <i class="far fa-trash-alt"></i>Ver perfil
-        </button>
-        <button (click)="eliminar(familia)" class="btn btn-outline-danger btn-sm">
-          <i class="far fa-trash-alt"></i>Eliminar
-        </button>
-      </td>
-    </tr>
+        <td>{{familia.id}}</td>
+        <td>{{familia.name}}</td>
+        <td>{{familia.correo}}</td>
+        <td><a class="btn btn-familia" href="usuarios/usuarios-familia/{{familia.id}}"> Ver integrates de familia </a></td>
+        <td class="text-center">
+          <button (click)="irPerfil(familia.id)" class="btn btn-outline-info btn-sm">
+            <i class="far fa-trash-alt"></i>Ver perfil
+          </button>
+          <button (click)="eliminar(familia)" class="btn btn-outline-danger btn-sm">
+            <i class="far fa-trash-alt"></i>Eliminar
+          </button>
+        </td>
+      </tr>
     </table>
   </div>
 </div>

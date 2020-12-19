@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Tareas } from '../../models/tareas.model';
 import { TareasService } from '../../servicios/tareas.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
+import { Session } from 'protractor';
+
 
 @Component({
   selector: 'app-listar-tareas',
@@ -11,10 +15,12 @@ export class ListarTareasComponent implements OnInit {
 
   public selectedTarea: Tareas = null;
   private isChecked: Boolean; 
-
+  private userType: string;
   private idFamiliaLocal: string = localStorage.getItem('id_familia');
 
-  constructor(private service: TareasService) { }
+  constructor(private service: TareasService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -23,7 +29,10 @@ export class ListarTareasComponent implements OnInit {
 
   obtenerTodo() {
 
+    this.userType = sessionStorage.getItem('usertype');
     return this.service.obtenerTareasFamilia(this.idFamiliaLocal);
+
+
    
   }
 
@@ -48,4 +57,15 @@ export class ListarTareasComponent implements OnInit {
     console.log(id); 
   }
 
+  irPerfil() {
+    this.router.navigate(['familias/listar-familias/perfil/' + sessionStorage.getItem('id_familia')]);
+  }
+
+  irRegistrarUsuario() {
+    this.router.navigate(['usuarios/agregar-usuario/' + sessionStorage.getItem('id_familia')]);
+  }
+
+  irListarUsuarios() {
+    this.router.navigate(['usuarios/usuarios-familia/' + sessionStorage.getItem('id_familia')]);
+  }
 }

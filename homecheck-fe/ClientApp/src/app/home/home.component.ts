@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         break;
       case "3": //usuario comun
         localStorage.setItem('id_familia', sessionStorage.getItem('id_familia'));
-        this.router.navigate(['/tareas/registro-tareas']);
+        this.router.navigate(['/tareas/lista-tareas']);
         break;
       default:
         sessionStorage.clear();

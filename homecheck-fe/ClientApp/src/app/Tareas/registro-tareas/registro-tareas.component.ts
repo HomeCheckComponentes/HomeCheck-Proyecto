@@ -32,11 +32,9 @@ export class RegistroTareasComponent implements OnInit {
   constructor(private service: TareasService, private usuarioService: UsuarioService,
     private router: Router,
     private route: ActivatedRoute) {
-    
   }
 
   ngOnInit() {
-
     this.obtenerUsuarios(this.idFamiliaLocal);
 
     this.tareaForm = new FormGroup({
@@ -45,8 +43,6 @@ export class RegistroTareasComponent implements OnInit {
       fechaLimite: new FormControl('', Validators.required),
       persona: new FormControl()
     });
-
-    
   }
 
   obtenerUsuarios(idFamilia: string) {
@@ -54,10 +50,7 @@ export class RegistroTareasComponent implements OnInit {
       .subscribe(data => {
         this.usuarios = data
         console.log(this.usuarios)
-
       });
-
-
   }
  
   get f() {
@@ -76,13 +69,11 @@ export class RegistroTareasComponent implements OnInit {
   }
 
   registrarTarea() {
-
-    
-
     this.service.crearTarea(this.sanitizeData(this.tareaForm))
       .subscribe(
         (response) => {
           this.isSendingData = false;
+          this.router.navigate(['/tareas/lista-tareas']);
         },
         (error) => {
           this.isSendingData = false;
@@ -93,8 +84,6 @@ export class RegistroTareasComponent implements OnInit {
           }
 
           window.scroll(0, 0);
-
-
         });
   }
 
@@ -106,7 +95,6 @@ export class RegistroTareasComponent implements OnInit {
       window.scroll(0, 0);
       return;
     }
-
     this.registrarTarea();
   }
 
@@ -115,13 +103,11 @@ export class RegistroTareasComponent implements OnInit {
   }
 
   irRegistrarUsuario() {
-    this.router.navigate(['usuarios/agregar-familia/' + sessionStorage.getItem('id_familia')]);
-
+    this.router.navigate(['usuarios/agregar-usuario/' + sessionStorage.getItem('id_familia')]);
   }
 
   irListarUsuarios() {
     this.router.navigate(['usuarios/usuarios-familia/' + sessionStorage.getItem('id_familia')]);
-
   }
 
 }
