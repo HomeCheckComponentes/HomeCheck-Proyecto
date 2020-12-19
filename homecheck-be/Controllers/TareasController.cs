@@ -38,6 +38,20 @@ namespace homecheck_be.Controllers
             return tarea;
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<List<Tareas>> TareasFamilia(string id)
+        {
+            var tarea = _tareaService.GetTareasFamilia(id);
+
+            if (tarea == null)
+            {
+                return NotFound();
+            }
+
+            return tarea;
+
+        }
+
         [HttpPost]
         public ActionResult<Tareas> Create(Tareas tareas)
         {

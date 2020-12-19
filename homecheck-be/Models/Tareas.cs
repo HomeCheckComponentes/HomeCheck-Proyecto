@@ -14,6 +14,8 @@ namespace homecheck_be.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
+        public string Id_familia { get; set; }
+
         public string descripcion { get; set; }
 
         public string persona { get; set; }

@@ -61,4 +61,8 @@ export class TareasService {
       })
     );
   }
+
+  obtenerUsuariosFamilia(id_familia: string) {
+    return this.http.get(this.baseUrl + "/tareas/TareasFamilia/" + id_familia).toPromise().then(res => this.tareas = res as Tareas[]);
+  }
 }

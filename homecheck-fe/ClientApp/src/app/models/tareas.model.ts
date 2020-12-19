@@ -5,5 +5,6 @@ export class Tareas {
   persona: string;
   fechaAsignada: Date;
   fechaLimite: Date;
-  estado: string; 
+  estado: string;
+  id_familia: string;
 }
