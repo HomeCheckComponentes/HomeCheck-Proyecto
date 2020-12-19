@@ -16,6 +16,8 @@ export class PerfilFamiliaComponent implements OnInit {
   public familiaActual: Familia;
   public usuarios: UsuarioList[];
   public familiaId: string = localStorage.getItem('id_familia');
+public userType: string;
+
 
 
   constructor(public familiaService: FamiliaService, public usuariosService: UsuarioService,
@@ -24,6 +26,9 @@ export class PerfilFamiliaComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.userType = sessionStorage.getItem('usertype');
+
     this.llenarFamilia();
   }
 
@@ -61,5 +66,10 @@ export class PerfilFamiliaComponent implements OnInit {
     localStorage.setItem('id_user', id);
     this.router.navigate(['/usuarios/user/' + id]);
   }
+
+  irPerfil() {
+    this.router.navigate(['familias/listar-familias/perfil/' + this.familiaId]);
+  }
+
 
 }
