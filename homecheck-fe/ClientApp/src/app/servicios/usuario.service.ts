@@ -4,6 +4,9 @@ import { UsuarioList } from "../models/usuario-list";
 import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../models/usuario";
 import { Observable } from "rxjs";
+import { Router, ActivatedRoute } from "@angular/router";
+
+
 
 @Injectable({
   providedIn: "root",
@@ -11,11 +14,13 @@ import { Observable } from "rxjs";
 export class UsuarioService {
   formData: UsuarioList;
   list: UsuarioList[];
+  private usuario: Usuario;
   listUsuarios: Usuario[];
   private baseUrl: string;
   private idFamilia = localStorage.getItem("id_familia");
 
-  constructor(@Inject("BASE_URL") baseUrl: string, private http: HttpClient) {
+  constructor(@Inject("BASE_URL") baseUrl: string, private http: HttpClient,
+    private router: Router,) {
     this.baseUrl = baseUrl;
   }
 
@@ -37,7 +42,10 @@ export class UsuarioService {
       .then((res) => (this.list = res as UsuarioList[]));
   }
 
+  obtenerUsuario(formData: Usuario) {
+    return this.http.post(this.baseUrl + "/usuario/LoginUsuario", formData);
 
+  }
 
   obtenerTodosUsuarios() {
     return this.http.get<UsuarioList[]>(this.baseUrl + '/usuario/Get');

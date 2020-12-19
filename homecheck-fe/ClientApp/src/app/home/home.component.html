@@ -14,28 +14,31 @@
 
       <div class="inicio-container">
 
-        <form>
+        <form class="form-inicio" [formGroup]="loginForm" (ngSubmit)="inicioSesion()">
 
           <h3>Inicio de sesión</h3>
 
           <div class="correo">
             <label>Correo electrónico</label> <br />
-            <input type="text" name="name" />
+            <input formControlName="correo" id="correo" type="email" name="correo" />
           </div>
 
           <div class="password">
             <label>Contraseña</label><br />
-            <input type="text" name="password" />
+            <input formControlName="password" id="password" type="password" name="password" />
           </div>
 
-          <div class="inicio-sesion">
-            <button class="btn-sub" type="submit">Iniciar sesión</button><br />
-
+          <div class="form-group inicio-sesion">
+            <button [disabled]="isSendingData" type="submit"
+                    class="btn btn-block btn-inicio" data-toggle="modal"
+                    data-target="#Modal">
+              Iniciar sesión
+            </button>
           </div>
           <div class="registrarse">
             <label>¿No es miembro?</label><br />
 
-             <a [routerLink]="['/familias/registrar-familia']"> <button type="button">Registrarse</button></a>
+            <a class="btn btn-login" [routerLink]="['/familias/registrar-familia']"> Registrar familia</a>
           </div>
 
 

@@ -84,7 +84,7 @@ namespace homecheck_be.Controllers
             return adminFamilia;
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult<Usuario> LoginUsuario(Usuario usuario)
         {
             var user = _usuarioService.GetByEmail(usuario.Email, usuario.Password);
