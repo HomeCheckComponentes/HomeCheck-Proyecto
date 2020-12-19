@@ -28,15 +28,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
   sanitizeData(data: FormGroup): Usuario {
     let userLogin: Usuario = new Usuario();
     userLogin.email = this.loginForm.controls['correo'].value;
     userLogin.password = this.loginForm.controls['password'].value;
     return userLogin;
   }
-
-
 
   inicioSesion() {
     this.submitted = true;
@@ -59,16 +56,9 @@ export class HomeComponent implements OnInit {
           console.log(error.error);
         }
       )
-
-    
-
- 
-  
   }
 
-
   validarTipoUsuario(usertype: string) {
-
     switch (usertype) {
       case "1": //Admin total
         this.router.navigate(['/familias/listar-familias']);
@@ -86,10 +76,5 @@ export class HomeComponent implements OnInit {
         this.router.navigate['/home'];
         break;
     }
-
   }
-
-
-
-
 }

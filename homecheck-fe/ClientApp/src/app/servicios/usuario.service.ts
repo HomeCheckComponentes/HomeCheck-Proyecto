@@ -14,8 +14,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class UsuarioService {
   formData: UsuarioList;
   list: UsuarioList[];
+  private idFamiliaUsuario: String;
   private usuario: Usuario;
-  private idFamiliaUsuario: String; 
   listUsuarios: Usuario[];
   private baseUrl: string;
   private idFamilia = localStorage.getItem("id_familia");
@@ -42,7 +42,7 @@ export class UsuarioService {
       .toPromise()
       .then((res) => (this.list = res as UsuarioList[]));
 
-    
+
   }
 
   obtenerUsuario(formData: Usuario) {
