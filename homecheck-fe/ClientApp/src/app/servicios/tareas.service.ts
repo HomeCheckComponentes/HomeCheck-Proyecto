@@ -9,12 +9,12 @@ import { Tareas } from '../models/tareas.model';
 })
 export class TareasService {
 
-  private baseUrl: string;
+  public baseUrl: string;
   formData: Tareas;
-  private tareas: Tareas[];
+  public tareas: Tareas[];
 
   constructor(@Inject('BASE_URL') baseUrl: string,
-    private http: HttpClient) {
+    public http: HttpClient) {
     this.baseUrl = baseUrl;
 }
 

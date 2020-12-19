@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 export class NavMenuComponent {
   isExpanded = false;
 
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 
   collapse() {
     this.isExpanded = false;

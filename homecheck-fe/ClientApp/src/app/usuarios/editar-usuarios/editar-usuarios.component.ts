@@ -14,13 +14,13 @@ import { ActivatedRoute } from '@angular/router';
 export class EditarUsuariosComponent implements OnInit {
 
   @Input() usuario: Usuario;
-  private usuarioUpdate: Usuario;
-  private usuarioId: string;
+  public usuarioUpdate: Usuario;
+  public usuarioId: string;
 
   constructor(
-    private usuarioService: UsuarioService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    public usuarioService: UsuarioService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute) {
     this.usuarioId = localStorage.getItem('id_user');
     this.usuario = new Usuario();
   }

@@ -9,10 +9,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./modificar-familia.component.css']
 })
 export class ModificarFamiliaComponent implements OnInit {
-  private familiaService: FamiliaService;
+  public familiaService: FamiliaService;
   @Input() familiaSeleccionada: Familia;
-  constructor(familiaService: FamiliaService, private router: Router,
-    private activatedRoute: ActivatedRoute) {
+  constructor(familiaService: FamiliaService, public router: Router,
+    public activatedRoute: ActivatedRoute) {
     this.familiaService = familiaService;
     this.familiaSeleccionada = new Familia();
   }

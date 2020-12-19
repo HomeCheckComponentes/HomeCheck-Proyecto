@@ -17,16 +17,16 @@ import { Local } from 'protractor/built/driverProviders';
 })
 export class ListarUsuariosfamiliaComponent implements OnInit {
 
-  private usuarios: UsuarioList[];
-  private usuarioUpdate: Usuario;
-  private familiaId: string = localStorage.getItem('id_familia');
+  public usuarios: UsuarioList[];
+  public usuarioUpdate: Usuario;
+  public familiaId: string = localStorage.getItem('id_familia');
 
 
 
   constructor(
-    private service: FamiliaService, private usuarioService: UsuarioService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    public service: FamiliaService, public usuarioService: UsuarioService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute) {
 
   }
 
